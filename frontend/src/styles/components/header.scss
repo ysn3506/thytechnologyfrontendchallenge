@@ -1,0 +1,47 @@
+@use '../variables.scss';
+
+.header-wrapper {
+    padding: 3rem 8%;
+
+    .header {
+        padding-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: variables.$third-color;
+
+        span {
+            .thin {
+                font-weight: 300;
+                font-size: 1.25rem;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+    }
+
+    .header.dark {
+        color: variables.$secondary-color;
+    }
+
+
+    .line {
+        margin-top: 0;
+        border-top: 0.5px solid variables.$primary-color;
+        border-bottom: 0.5px solid variables.$primary-color;
+
+    }
+
+    .line.dark {
+        border-top: 0.5px solid variables.$secondary-color;
+        border-bottom: 0.5px solid variables.$secondary-color;
+
+    }
+
+}
