@@ -1,0 +1,71 @@
+@use '../variables.scss';
+
+
+.button {
+    padding: 5px;
+    transition: all 0.2s ease-in;
+
+}
+
+.button:active {
+    transform: scale(0.95);
+    transition: all 0.2s ease-in;
+}
+
+
+.button.search-input-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: variables.$sixth-bg-color;
+    color: variables.$secondary-color;
+    border: none;
+    padding: 10px;
+    min-width: 7rem;
+    height: 3.85rem;
+    font-size: 1rem;
+
+    img {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-left: 15px;
+        color: variables.$secondary-color;
+        align-self: center;
+
+
+    }
+}
+
+.button.search-input-button.passenger,
+.button.search-input-button.navigate {
+    img {
+
+        align-self: flex-end;
+        width: 30px;
+        height: 30px;
+        margin-left: unset;
+    }
+
+    span {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
+}
+
+.button.search-input-button.navigate {
+    background-color: variables.$fourth-bg-color;
+    width: 3.5rem;
+    min-width: unset;
+
+    img {
+        align-self: center;
+        width: 40px;
+        height: 40px;
+    }
+
+
+}

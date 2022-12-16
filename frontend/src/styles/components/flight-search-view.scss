@@ -1,0 +1,40 @@
+@use '../variables.scss';
+
+
+.flight-search-layout {
+    background-color: variables.$primary-bg-color;
+    width: 100%;
+    height: 100%;
+    color: variables.$secondary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .layout-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: -20rem;
+
+        .title-wrapper {
+            text-align: center;
+            margin: auto;
+
+            :first-child {
+                font-size: 2.25rem;
+                margin-bottom:0.5rem;
+            }
+
+            h1 {
+                font-weight: 300;
+                font-size: 2rem;
+                line-height: 1;
+                margin: 0;
+
+            }
+        }
+    }
+
+
+}
