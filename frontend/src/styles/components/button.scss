@@ -12,6 +12,9 @@
     transition: all 0.2s ease-in;
 }
 
+.button:hover{
+    cursor: pointer;
+}
 
 .button.search-input-button {
     display: flex;
@@ -40,6 +43,7 @@
 
 .button.search-input-button.passenger,
 .button.search-input-button.navigate {
+
     img {
 
         align-self: flex-end;
@@ -54,8 +58,24 @@
         right: 5px;
     }
 
-}
+    .plus-icons{
+        position: relative;
+        margin-left:3px;
+        display: inline-flex;
+        margin-top:10px;
+        font-weight: bold;
+        color:variables.$fourth-color;
+    
+      
+    }
 
+}
+.button.search-input-button.passenger{
+   img:not(:first-child) {
+        margin-left:-12px;
+   }
+    
+}
 .button.search-input-button.navigate {
     background-color: variables.$fourth-bg-color;
     width: 3.5rem;

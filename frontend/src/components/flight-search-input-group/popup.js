@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import Button from "../button";
 import plus from "../../assets/plus.png";
 import minus from "../../assets/minus.png";
+import { setPassengerNumber } from "../../storage/actions";
 
-const Popup = ({ isHidden }) => {
-    const [passengerNumber, setPassengerNumber] = useState(1);
+const Popup = ({ isShown }) => {
+   const numberOfPassenger = useSelector(state => state.reducer.queryFlightPassengerAmount);
+
+
+  const incrementPassenger = () => {
+      setPassengerNumber(numberOfPassenger + 1);
+  };
+  const decrementPasssengerNumber = () => {
+    if (numberOfPassenger > 1) setPassengerNumber(numberOfPassenger - 1);
+  };
     
-    const incrementPassenger = () => {
-        setPassengerNumber(passengerNumber + 1);
-    }
-    const decrementPasssengerNumber = () => {
-      if(passengerNumber>1)  setPassengerNumber(passengerNumber - 1);
-    }
+
+    
   return (
-    <div className={`popup ${!isHidden && "show"}`}>
+    <div className={`popup ${isShown && "show"}`}>
       <h2>Kabin ve Yolcu Seçimi</h2>
       <div className="radio-button-group">
         <div className="radio-button-wrapper">
@@ -30,7 +36,7 @@ const Popup = ({ isHidden }) => {
         <span>Yolcu</span>
         <div className="passenger-amount-action">
           <Button onClickAction={decrementPasssengerNumber} icon={minus} />
-          <span>{passengerNumber}</span>
+          <span>{numberOfPassenger}</span>
           <Button onClickAction={incrementPassenger} icon={plus} />
         </div>
       </div>
@@ -39,11 +45,11 @@ const Popup = ({ isHidden }) => {
 };
 
 Popup.propTypes = {
-    isHidden:PropTypes.bool
+  isShown: PropTypes.bool,
 };
 
 Popup.defaultProps = {
-    isHidden: true
-}
+  isShown: true,
+};
 
 export default Popup;

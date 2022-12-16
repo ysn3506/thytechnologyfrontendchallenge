@@ -1,4 +1,5 @@
-import React,{useState} from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import arrivals from "../../assets/arrivals.png";
 import departures from "../../assets/departures.png";
 import calendar from "../../assets/calendar.png";
@@ -9,16 +10,26 @@ import SearchInput from "../input";
 import Popup from "./popup";
 
 const FlightSearchInputGroup = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const numberOfPassenger = useSelector(
+    (state) => state.reducer.queryFlightPassengerAmount
+  );
 
-  const togglePopup = () => setShowPopup(!showPopup);
+  const [showPopup, setShowPopup] = useState(false);
+    useEffect(() => {
+        
+        
+    },[])
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
   return (
     <div className="search-input-group-wrapper">
       <SearchInput
         placeholder="Nereden"
         icon={departures}
-        classess="search-input"
+              classess="search-input"
       />
       <div className="ui left icon input">
         <input type="text" placeholder="Nereye" />
@@ -27,12 +38,13 @@ const FlightSearchInputGroup = () => {
       <Button icon={calendar} content="Tarih" classes="search-input-button" />
       <Button
         icon={man}
-        content="1"
+        content={numberOfPassenger}
         classes="search-input-button passenger"
         onClickAction={togglePopup}
+        iconRepeat={numberOfPassenger}
       />
       <Button icon={arrow} classes="search-input-button navigate" />
-      <Popup isHidden={showPopup} />
+      <Popup isShown={showPopup} />
     </div>
   );
 };
