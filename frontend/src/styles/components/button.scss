@@ -70,8 +70,9 @@
     }
 
 }
+
 .button.search-input-button.passenger{
-   img:not(:first-child) {
+   img:not(:first-of-type) {
         margin-left:-12px;
    }
     

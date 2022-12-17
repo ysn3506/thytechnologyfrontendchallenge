@@ -7,20 +7,24 @@ import minus from "../../assets/minus.png";
 import { setPassengerNumber } from "../../storage/actions";
 
 const Popup = ({ isShown }) => {
-   const numberOfPassenger = useSelector(state => state.reducer.queryFlightPassengerAmount);
-
+  const numberOfPassenger = useSelector(
+    (state) => state.reducer.queryFlightPassengerAmount
+  );
 
   const incrementPassenger = () => {
-      setPassengerNumber(numberOfPassenger + 1);
+    setPassengerNumber(numberOfPassenger + 1);
   };
   const decrementPasssengerNumber = () => {
     if (numberOfPassenger > 1) setPassengerNumber(numberOfPassenger - 1);
   };
-    
 
-    
   return (
-    <div className={`popup ${isShown && "show"}`}>
+    <div
+      className={`popup ${isShown && "show"}`}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <h2>Kabin ve Yolcu Seçimi</h2>
       <div className="radio-button-group">
         <div className="radio-button-wrapper">

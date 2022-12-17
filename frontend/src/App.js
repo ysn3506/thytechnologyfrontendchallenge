@@ -31,7 +31,7 @@ function App() {
                 }
               />
               <Route
-                path="/flightSelection"
+                path="/flight-selection"
                 element={<FlightSelection/>}
               />
             </Routes>

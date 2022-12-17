@@ -3,6 +3,7 @@ import {
   SET_DARK_MODE,
   SET_DEPARTURE,
   SET_NUMBER_OF_PASSENGER,
+  SET_QUERY_RESULTS,
   SET_SELECTED_FLIGHT,
 } from "./contants";
 
@@ -11,6 +12,7 @@ const initialState = {
   queryFlightFrom: "",
   queryFlightTo: "",
   queryFlightPassengerAmount: 1,
+  queryResults:[],
   selectedFlight: {},
 };
 
@@ -26,6 +28,8 @@ export const reducer = (state = initialState, action) => {
       return { ...state, queryFlightPassengerAmount: action.payload };
     case SET_SELECTED_FLIGHT:
       return { ...state, selectedFlight: action.payload };
+    case SET_QUERY_RESULTS:
+      return { ...state, queryResults: action.payload };
     default:
       return state;
   }

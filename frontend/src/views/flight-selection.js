@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { setDarkMode } from '../storage/actions';
 
 const FlightSelection = () => {
+     useEffect(() => {
+       setDarkMode(false);
+     }, []);
     return (
         <div>
             <h1>Flight Selection</h1>
