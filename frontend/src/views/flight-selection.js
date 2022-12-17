@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { setDarkMode } from "../storage/actions";
 import FlightQuerySummary from "../components/flight-query-summary";
 import SwitchToggle from "../components/switch-toggle";
+import FlightResults from "../components/flight-results";
 
 const FlightSelection = () => {
   const {
@@ -24,7 +25,8 @@ const FlightSelection = () => {
         to={queryFlightTo}
         passengerAmount={queryFlightPassengerAmount}
       />
-      <SwitchToggle label="Promosyon Kodu"/>
+          <SwitchToggle label="Promosyon Kodu" />
+          <FlightResults/>
     </div>
   );
 };

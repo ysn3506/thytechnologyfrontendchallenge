@@ -35,17 +35,19 @@
     }
 
 
-    .line {
-        margin-top: 0;
-        border-top: 0.5px solid variables.$primary-color;
-        border-bottom: 0.5px solid variables.$primary-color;
+  
 
-    }
+}
 
-    .line.dark {
-        border-top: 0.5px solid variables.$secondary-color;
-        border-bottom: 0.5px solid variables.$secondary-color;
+.line {
+    margin-top: 0;
+    border-top: 0.5px solid variables.$primary-color;
+    border-bottom: 0.5px solid variables.$primary-color;
 
-    }
+}
+
+.line.dark {
+    border-top: 0.5px solid variables.$secondary-color;
+    border-bottom: 0.5px solid variables.$secondary-color;
 
 }
