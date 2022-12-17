@@ -1,15 +1,32 @@
-import React, { useEffect } from 'react';
-import { setDarkMode } from '../storage/actions';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { setDarkMode } from "../storage/actions";
+import FlightQuerySummary from "../components/flight-query-summary";
+import SwitchToggle from "../components/switch-toggle";
 
 const FlightSelection = () => {
-     useEffect(() => {
-       setDarkMode(false);
-     }, []);
-    return (
-        <div>
-            <h1>Flight Selection</h1>
-        </div>
-    );
+  const {
+    queryFlightFrom,
+    queryFlightTo,
+    queryFlightPassengerAmount,
+    queryResults,
+  } = useSelector((state) => state.reducer);
+
+  useEffect(() => {
+    setDarkMode(false);
+  }, []);
+
+  console.log(queryResults);
+  return (
+    <div className="flight-selection-view">
+      <FlightQuerySummary
+        from={queryFlightFrom}
+        to={queryFlightTo}
+        passengerAmount={queryFlightPassengerAmount}
+      />
+      <SwitchToggle label="Promosyon Kodu"/>
+    </div>
+  );
 };
 
 export default FlightSelection;

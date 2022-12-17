@@ -19,7 +19,11 @@ import {
 } from "../../storage/actions";
 import { capitalizeFirstLetter } from "../../utils";
 
-const FlightSearchInputGroup = ({ isPopupShown, togglePopup }) => {
+const FlightSearchInputGroup = ({
+  isPopupShown,
+  togglePopup,
+  showNoFlightModal,
+}) => {
   const numberOfPassenger = useSelector(
     (state) => state.reducer.queryFlightPassengerAmount
   );
@@ -37,6 +41,7 @@ const FlightSearchInputGroup = ({ isPopupShown, togglePopup }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (errorMessage.length > 0) setErrorMessage("");
     if (departureCity.length >= 3) {
       setDepartureCityLoading(true);
       getDepartures(departureCity)
@@ -52,6 +57,7 @@ const FlightSearchInputGroup = ({ isPopupShown, togglePopup }) => {
   }, [departureCity]);
 
   useEffect(() => {
+    if (errorMessage.length > 0) setErrorMessage("");
     if (arrivalCity.length >= 3) {
       setArrivalCityLoading(true);
       getArrivals(arrivalCity)
@@ -117,11 +123,11 @@ const FlightSearchInputGroup = ({ isPopupShown, togglePopup }) => {
         capitalizeFirstLetter(flightTo)
       ).then((resp) => {
         if (resp.length === 0) {
-          setErrorMessage("Bu Rotada Uçuş Bulunamadı.");
+          showNoFlightModal()
         } else {
           setQueryResults(resp);
-            setErrorMessage("");
-            navigate("/flight-selection");
+          setErrorMessage("");
+          navigate("/flight-selection");
         }
       });
     }
@@ -175,7 +181,11 @@ const FlightSearchInputGroup = ({ isPopupShown, togglePopup }) => {
         onClickAction={findFlights}
       />
       <Popup isShown={isPopupShown} />
-      {errorMessage.length > 0 && <p>{errorMessage}</p>}
+      {errorMessage.length > 0 && (
+        <div className="error-wrapper">
+          <p>{errorMessage}</p>
+        </div>
+      )}
     </div>
   );
 };
@@ -183,6 +193,7 @@ const FlightSearchInputGroup = ({ isPopupShown, togglePopup }) => {
 FlightSearchInputGroup.propTypes = {
   isPopupShown: PropTypes.bool,
   togglePopup: PropTypes.func,
+  showNoFlightModal:PropTypes.func,
 };
 
 export default FlightSearchInputGroup;

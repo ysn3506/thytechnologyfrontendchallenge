@@ -8,11 +8,17 @@
 @use 'components/popup.scss';
 @use 'components/loading-spinner.scss';
 @use 'components/city-list.scss';
+@use 'components/modal.scss';
+@use 'components/flight-selection-view.scss';
+@use 'components/switch-toggle.scss';
 
 
 .App{
     width:100vw;
     height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
     padding:0;
     margin:0;
     font-family: 'Open Sans',sans-serif;

@@ -23,4 +23,14 @@
         }
     }
   
+.error-wrapper{
+    position:absolute;
+    bottom:-70%;
+    margin:auto;
+    font-weight: 600;
+    background-color:variables.$secondary-color;
+    color: variables.$fourth-bg-color;
+    padding:10px;
+}
+
 }

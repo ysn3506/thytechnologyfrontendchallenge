@@ -1,0 +1,26 @@
+@use '../variables.scss';
+
+
+.flight-selection-view{
+    margin-top:15%;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:3rem;
+    padding:0 30%;
+    color:variables.$third-color;
+
+.flight-query-summary{
+    .title{
+        background-color: variables.$fourth-bg-color;
+        color:variables.$secondary-color;
+        padding:5px 3rem;
+    }
+    .from-to{
+        font-size:1.5rem;
+        margin-top:1.5rem;
+    }
+}
+
+}

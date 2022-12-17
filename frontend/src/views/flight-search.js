@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import FlightSearchInputGroup from "../components/flight-search-input-group";
+import NoFlight from "../components/flight-search-input-group/no-flight";
 import { setDarkMode } from "../storage/actions";
 
 const FlightSearch = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showNoFlight, setShowNoFlight] = useState(false);
 
   useEffect(() => {
     setDarkMode(true);
@@ -18,6 +20,11 @@ const FlightSearch = () => {
     setShowPopup(!showPopup);
   };
 
+  const showNoFlightModal = () => setShowNoFlight(true);
+  const hideNoFlightModal = () => setShowNoFlight(false);
+
+  console.log(showNoFlight)
+
   return (
     <div className="flight-search-layout" onClick={closePassengerPopUp}>
       <div className="layout-wrapper">
@@ -28,7 +35,9 @@ const FlightSearch = () => {
         <FlightSearchInputGroup
           togglePopup={togglePopup}
           isPopupShown={showPopup}
+          showNoFlightModal={showNoFlightModal}
         />
+        {showNoFlight && <NoFlight hideMessage={hideNoFlightModal} />}
       </div>
     </div>
   );
