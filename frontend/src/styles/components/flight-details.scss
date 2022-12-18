@@ -14,12 +14,16 @@
         gap: 1.25rem;
         background-color: variables.$secondary-bg-color;
         box-shadow: 2px 5px 13px rgb(0 0 0 / 10%);
+        transition: all 300ms ease-in-out;
+        -webkit-transition: all 300ms ease-in-out;
 
         .category-wrapper {
             display: flex;
             justify-content: space-around;
             align-items: center;
             gap: 0.75rem;
+            transition: all 300ms ease-in-out;
+            -webkit-transition: all 300ms ease-in-out;
 
             .radio-button-wrapper {
                 display: flex;
@@ -56,25 +60,41 @@
         }
 
         .accordion-arrow {
+            transition: all 300ms ease-in-out;
+            -webkit-transition: all 300ms ease-in-out;
+
             img {
                 width: .75rem;
                 height: .75rem;
             }
-            .arrow-image{
+
+            .arrow-image {
                 transition: transform 0.2s ease-in-out;
-                -webkit-transition:transform 0.2s ease-in-out;
+                -webkit-transition: transform 0.2s ease-in-out;
             }
-            .arrow-image.selected{
+
+            .arrow-image.selected {
                 transform: rotate(180deg);
                 transition: transform 0.2s ease-in-out;
-                -webkit-transition:transform 0.2s ease-in-out;
+                -webkit-transition: transform 0.2s ease-in-out;
             }
         }
-     
+
+    }
+
+    .category.selected {
+        margin-bottom: -1rem;
+        transition: all 300ms ease-in-out 300ms;
+        -webkit-transition: all 300ms ease-in-out 300ms;
+
+        .category-wrapper,
+        .accordion-arrow {
+            margin-bottom: 1rem;
+            transition: all 300ms ease-in-out 300ms;
+            -webkit-transition: all 300ms ease-in-out 300ms;
+        }
     }
 
 
-    .card-group {
-        display: none
-    }
+
 }

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import arrow from "../assets/down-arrow.png";
 
-
 function FlightDetails({ flightInfo, selected, handleClick }) {
   const { fareCategories } = flightInfo;
 
@@ -18,7 +17,7 @@ function FlightDetails({ flightInfo, selected, handleClick }) {
             return (
               <div
                 key={el}
-                className="category"
+                className={`category ${selected === el && "selected"}`}
                 onClick={() =>
                   handleClick(el, fareCategories[el]?.subcategories)
                 }
@@ -42,7 +41,11 @@ function FlightDetails({ flightInfo, selected, handleClick }) {
                   </div>
                 </div>
                 <div className="accordion-arrow">
-                  <img className={`arrow-image ${selected===el && "selected"}`} src={arrow} alt="arrow" />
+                  <img
+                    className={`arrow-image ${selected === el && "selected"}`}
+                    src={arrow}
+                    alt="arrow"
+                  />
                 </div>
               </div>
             );
@@ -52,9 +55,9 @@ function FlightDetails({ flightInfo, selected, handleClick }) {
 }
 
 FlightDetails.propTypes = {
-    flightInfo: PropTypes.object,
-    selected: PropTypes.string,
-    handleClick:PropTypes.func
+  flightInfo: PropTypes.object,
+  selected: PropTypes.string,
+  handleClick: PropTypes.func,
 };
 
 export default FlightDetails;

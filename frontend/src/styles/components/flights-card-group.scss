@@ -1,21 +1,22 @@
 @use '../variables.scss';
 
-.cards-group{
-    display:none;
-    grid-template-columns:32.5% 32.5% 32.5%;;
-    gap:0.75rem;
+.cards-group {
+    display: grid;
+    grid-template-columns: 32.5% 32.5% 32.5%;
+    ;
+    gap: 0.75rem;
     padding: 10px;
     background-color: variables.$secondary-bg-color;
-    transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    height: 0px;
-  
-    
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    height: 0;
+    margin-bottom: 0.75rem;
+    z-index: 5;
 }
 
-.cards-group.show{
+.cards-group.show {
     display: grid;
-    height:300px;
-    transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
+    height: 300px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
 }

@@ -1,13 +1,13 @@
-import React from 'react';
-import Header from './components/header';
-import './styles/main.scss';
+import React from "react";
+import Header from "./components/header";
+import "./styles/main.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import FlightSearch from './views/flight-search';
-import FlightSelection from './views/flight-selection';
+import FlightSearch from "./views/flight-search";
+import FlightSelection from "./views/flight-selection";
 
 function App() {
-    const path = window.location;
+  const path = window.location;
   return (
     <div className="App">
       <Header />
@@ -15,25 +15,9 @@ function App() {
         <CSSTransition key={path} classNames="fade" timeout={250}>
           <BrowserRouter>
             <Routes>
-              <Route
-                exact
-                path="/"
-                element={
-                <FlightSearch/>
-                }
-              />
-              <Route
-                path="/flightSearch"
-                element={
-                 
-                    <Navigate to="/" />
-                  
-                }
-              />
-              <Route
-                path="/flight-selection"
-                element={<FlightSelection/>}
-              />
+              <Route exact path="/" element={<FlightSearch />} />
+              <Route path="/flightSearch" element={<Navigate to="/" />} />
+              <Route path="/flight-selection" element={<FlightSelection />} />
             </Routes>
           </BrowserRouter>
         </CSSTransition>

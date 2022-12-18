@@ -9,6 +9,7 @@ function FlightInfo({ flightInfo }) {
     arrivalDateTimeDisplay,
     departureDateTimeDisplay,
   } = flightInfo;
+
   return (
     <div className="flight-info-wrapper">
       <div className="flight-route">
@@ -35,7 +36,7 @@ function FlightInfo({ flightInfo }) {
 }
 
 FlightInfo.propTypes = {
-    flightInfo:PropTypes.object
+  flightInfo: PropTypes.object,
 };
 
 export default FlightInfo;

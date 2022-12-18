@@ -13,16 +13,26 @@ const FlightResult = ({ flightInfo }) => {
     if (!isClicked) {
       setSelectedTab(tab);
     } else {
-      selectedTab === tab && setSelectedTab();
+      selectedTab === tab ? setSelectedTab() : setSelectedTab(tab);
     }
-    setIsClicked(!isClicked);
+
+    if (isClicked && selectedTab !== tab) {
+      setIsClicked(true);
+    } else {
+      setIsClicked(!isClicked);
+    }
+
     setTabContent(content);
   };
   return (
     <div className="flight-result">
       <div className="result-wrapper">
         <FlightInfo flightInfo={flightInfo} />
-        <FlightDetails flightInfo={flightInfo} handleClick={handleClick} selected={selectedTab}/>
+        <FlightDetails
+          flightInfo={flightInfo}
+          handleClick={handleClick}
+          selected={selectedTab}
+        />
       </div>
       <FlightCardsGroup isShown={isClicked} categories={tabContent} />
     </div>
