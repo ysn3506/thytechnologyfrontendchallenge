@@ -6,27 +6,24 @@ import SwitchToggle from "../components/switch-toggle";
 import FlightResults from "../components/flight-results";
 
 const FlightSelection = () => {
-  const {
-    queryFlightFrom,
-    queryFlightTo,
-    queryFlightPassengerAmount,
-    queryResults,
-  } = useSelector((state) => state.reducer);
+  const { queryFlightFrom, queryFlightTo, queryFlightPassengerAmount } =
+    useSelector((state) => state.reducer);
 
   useEffect(() => {
     setDarkMode(false);
   }, []);
 
-  console.log(queryResults);
   return (
     <div className="flight-selection-view">
-      <FlightQuerySummary
-        from={queryFlightFrom}
-        to={queryFlightTo}
-        passengerAmount={queryFlightPassengerAmount}
-      />
-          <SwitchToggle label="Promosyon Kodu" />
-          <FlightResults/>
+      <div className="flight-selection-wrapper">
+        <FlightQuerySummary
+          from={queryFlightFrom}
+          to={queryFlightTo}
+          passengerAmount={queryFlightPassengerAmount}
+        />
+        <SwitchToggle label="Promosyon Kodu" />
+        <FlightResults />
+      </div>
     </div>
   );
 };

@@ -1,23 +1,35 @@
 @use '../variables.scss';
 
 
-.flight-selection-view{
+.flight-selection-view {
     display: flex;
     flex-direction: column;
-    gap:3rem;
-    padding:8% 30%;
-    color:variables.$third-color;
 
-.flight-query-summary{
-    .title{
-        background-color: variables.$fourth-bg-color;
-        color:variables.$secondary-color;
-        padding:5px 3rem;
+    padding: 8%;
+    color: variables.$third-color;
+
+    .flight-selection-wrapper {
+        max-width:70vw;
+        margin:0 auto;
+        display: flex;
+        flex-direction: column;
+        gap:2.5rem;
+        
+        .flight-query-summary {
+            .title {
+                background-color: variables.$fourth-bg-color;
+                color: variables.$secondary-color;
+                padding: 5px 3rem;
+            }
+
+            .from-to {
+                font-size: 1.5rem;
+                margin-top: 1.5rem;
+            }
+        }
+
     }
-    .from-to{
-        font-size:1.5rem;
-        margin-top:1.5rem;
-    }
-}
+
+
 
 }
