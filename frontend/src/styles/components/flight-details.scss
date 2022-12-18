@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: auto auto;
     column-gap: .6rem;
+    position: relative;
 
     .category {
         display: flex;
@@ -59,7 +60,17 @@
                 width: .75rem;
                 height: .75rem;
             }
+            .arrow-image{
+                transition: transform 0.2s ease-in-out;
+                -webkit-transition:transform 0.2s ease-in-out;
+            }
+            .arrow-image.selected{
+                transform: rotate(180deg);
+                transition: transform 0.2s ease-in-out;
+                -webkit-transition:transform 0.2s ease-in-out;
+            }
         }
+     
     }
 
 

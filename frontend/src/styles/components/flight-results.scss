@@ -21,7 +21,7 @@
             border-radius: 5px;
             color: variables.$secondary-color;
             background-color: transparent;
-            padding:3px 15px;
+            padding: 3px 15px;
         }
     }
 
@@ -34,8 +34,18 @@
 
         .flight-result {
             display: grid;
-            grid-template-columns: max-content max-content;
-            gap: .6rem;
+            grid-template-rows: max-content max-content;
+            position: relative;
+            gap:0.75rem;
+
+            .result-wrapper {
+                display: grid;
+                grid-template-columns: max-content max-content;
+                gap: .6rem;
+
+
+            }
+
         }
     }
 }

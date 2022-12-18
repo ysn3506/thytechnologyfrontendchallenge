@@ -23,8 +23,6 @@ const FlightSearch = () => {
   const showNoFlightModal = () => setShowNoFlight(true);
   const hideNoFlightModal = () => setShowNoFlight(false);
 
-  console.log(showNoFlight)
-
   return (
     <div className="flight-search-layout" onClick={closePassengerPopUp}>
       <div className="layout-wrapper">

@@ -1,0 +1,55 @@
+@use '../variables.scss';
+
+.card-wrapper {
+    display: inline-grid;
+    grid-template-rows: 20% 80%;
+    position: relative;
+
+    .card-title {
+        color: variables.$third-color;
+        background-color: #f4f5f8;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        ;
+
+        .price {
+            display: flex;
+
+
+            .currency {
+                font-size: 0.75rem;
+                margin-top: 2px;
+                margin-right: 2px;
+            }
+        }
+    }
+
+    .card-content {
+        border: 1px solid rgb(0, 0, 0, 0.1);
+        background-color: variables.$secondary-bg-color;
+        font-size: .75rem;
+
+        .right {
+            border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+        }
+    }
+
+    .button {
+        position: absolute;
+        bottom: 0;
+        background-color: variables.$fourth-bg-color;
+        color: variables.$secondary-bg-color;
+        height: 3rem;
+        border: none;
+        width: 100%;
+        font-weight: bold;
+    }
+}

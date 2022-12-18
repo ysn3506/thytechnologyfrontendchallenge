@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import arrow from "../assets/down-arrow.png";
 
-function FlightDetails({ flightInfo }) {
-  const [selectedTab, setSelectedTab] = useState();
+
+function FlightDetails({ flightInfo, selected, handleClick }) {
   const { fareCategories } = flightInfo;
+
   return (
     <div className="flight-details-wrapper">
       {fareCategories &&
@@ -18,7 +19,9 @@ function FlightDetails({ flightInfo }) {
               <div
                 key={el}
                 className="category"
-                onClick={() => setSelectedTab(el)}
+                onClick={() =>
+                  handleClick(el, fareCategories[el]?.subcategories)
+                }
               >
                 <div className="category-wrapper">
                   <div className="radio-button-wrapper">
@@ -27,7 +30,7 @@ function FlightDetails({ flightInfo }) {
                       id={el}
                       name={el}
                       value={el}
-                      checked={selectedTab === el}
+                      checked={selected === el}
                     />
                     <label htmlFor="economy">{el}</label>
                   </div>
@@ -37,21 +40,21 @@ function FlightDetails({ flightInfo }) {
                       {planToShow.price.currency} {planToShow.price.amount}
                     </span>
                   </div>
-                    </div>
-                    <div className="accordion-arrow">
-                        <img src={arrow} alt="arrow"/>
-                    </div>
+                </div>
+                <div className="accordion-arrow">
+                  <img className={`arrow-image ${selected===el && "selected"}`} src={arrow} alt="arrow" />
+                </div>
               </div>
             );
           })}
-
-      <div className="card-group"></div>
     </div>
   );
 }
 
 FlightDetails.propTypes = {
-  flightInfo: PropTypes.object,
+    flightInfo: PropTypes.object,
+    selected: PropTypes.string,
+    handleClick:PropTypes.func
 };
 
 export default FlightDetails;
