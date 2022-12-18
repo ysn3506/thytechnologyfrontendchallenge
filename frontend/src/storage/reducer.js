@@ -6,6 +6,7 @@ import {
   SET_NUMBER_OF_PASSENGER,
   SET_QUERY_RESULTS,
   SET_SELECTED_FLIGHT,
+  SET_PROMOTION_TOGGLE
 } from "./contants";
 
 // These are created for the UX, if user had flight search previously, departure city and number of passengers will be loaded automatically.
@@ -21,6 +22,7 @@ const initialState = {
   queryFlightPassengerAmount: Number(prevNumberOfPassengers) || 1,
   queryResults: [],
   selectedFlight: {},
+  isPromotionActive:false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -37,6 +39,8 @@ export const reducer = (state = initialState, action) => {
       return { ...state, selectedFlight: action.payload };
     case SET_QUERY_RESULTS:
       return { ...state, queryResults: action.payload };
+    case SET_PROMOTION_TOGGLE:
+      return { ...state, isPromotionActive: action.payload };
     default:
       return state;
   }

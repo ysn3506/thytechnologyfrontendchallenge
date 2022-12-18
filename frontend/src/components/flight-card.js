@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 import Button from "./button";
 import { capitalizeFirstLetter } from "../utils";
 
-function FlightCard({ flightCategory }) {
+function FlightCard({ flightCategory, selectedTab }) {
   const { brandCode, price, rights } = flightCategory;
-
+  const isPromotionActive = useSelector(state => state.reducer.isPromotionActive);
+  const isButtonDisable = isPromotionActive && ((brandCode !== "ecoFly" && selectedTab === "ECONOMY")||(selectedTab==="BUSINESS"));
+  console.log(selectedTab)
   return (
     <div className="card-wrapper">
       <div className="card-title">
@@ -23,13 +26,14 @@ function FlightCard({ flightCategory }) {
             </div>
           ))}
       </div>
-      <Button content="Uçuşu Seç" />
+      <Button content="Uçuşu Seç" disable={isButtonDisable}/>
     </div>
   );
 }
 
 FlightCard.propTypes = {
   flightCategory: PropTypes.object,
+  selectedTab:PropTypes.string
 };
 
 export default FlightCard;

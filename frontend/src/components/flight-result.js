@@ -34,7 +34,7 @@ const FlightResult = ({ flightInfo }) => {
           selected={selectedTab}
         />
       </div>
-      <FlightCardsGroup isShown={isClicked} categories={tabContent} />
+      <FlightCardsGroup isShown={isClicked} categories={tabContent} selectedTab={selectedTab} />
     </div>
   );
 };

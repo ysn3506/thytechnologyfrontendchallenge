@@ -52,4 +52,14 @@
         width: 100%;
         font-weight: bold;
     }
+
+    .button:disabled{
+        background-color: lightgray;
+        color:variables.$third-color;
+        cursor:not-allowed;
+    }
+
+    .button:disabled:active{
+        transform: unset;
+    }
 }
