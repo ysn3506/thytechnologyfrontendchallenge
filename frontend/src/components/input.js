@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import airplane from "../assets/airplane.gif";
+import { capitalizeFirstLetter } from "../utils";
 
 function SearchInput({
   placeholder,
@@ -10,15 +11,18 @@ function SearchInput({
   isLoading,
   value,
   onBlur,
+  onFocus
+  
 }) {
   return (
     <div className={`input ${classess}`}>
       <input
         type="text"
         placeholder={placeholder}
-        value={value.toUpperCase()}
+        value={capitalizeFirstLetter(value)}
         onChange={onChange}
         onBlur={onBlur}
+        onFocus={onFocus}
       />
       <img className="icon" src={isLoading ? airplane : icon} />
     </div>
@@ -33,6 +37,7 @@ SearchInput.propTypes = {
   isLoading: PropTypes.bool,
   value: PropTypes.string,
   onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
 };
 
 SearchInput.defaultProps = {
@@ -42,6 +47,7 @@ SearchInput.defaultProps = {
   isLoading: false,
   value: "",
   onBlur: undefined,
+  onFocus:undefined
 };
 
 export default SearchInput;

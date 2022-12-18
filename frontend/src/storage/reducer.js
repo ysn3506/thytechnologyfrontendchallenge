@@ -1,3 +1,4 @@
+import { getFromLocalStorage } from "../utils";
 import {
   SET_ARRIVALS,
   SET_DARK_MODE,
@@ -7,12 +8,18 @@ import {
   SET_SELECTED_FLIGHT,
 } from "./contants";
 
+// These are created for the UX, if user had flight search previously, departure city and number of passengers will be loaded automatically.
+const prevFlightFrom = getFromLocalStorage("queryFlightFrom");
+const prevNumberOfPassengers = getFromLocalStorage(
+  "queryFlightPassengerAmount"
+);
+
 const initialState = {
   darkMode: false,
-  queryFlightFrom: "",
+  queryFlightFrom: prevFlightFrom,
   queryFlightTo: "",
-  queryFlightPassengerAmount: 1,
-  queryResults:[],
+  queryFlightPassengerAmount: Number(prevNumberOfPassengers) || 1,
+  queryResults: [],
   selectedFlight: {},
 };
 

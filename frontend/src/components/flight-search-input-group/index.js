@@ -17,7 +17,7 @@ import {
   setDeparture,
   setQueryResults,
 } from "../../storage/actions";
-import { capitalizeFirstLetter } from "../../utils";
+import { capitalizeFirstLetter, saveToLocalStorage } from "../../utils";
 
 const FlightSearchInputGroup = ({
   isPopupShown,
@@ -29,20 +29,27 @@ const FlightSearchInputGroup = ({
   );
   const flightFrom = useSelector((state) => state.reducer.queryFlightFrom);
   const flightTo = useSelector((state) => state.reducer.queryFlightTo);
+  const passengerAmount = useSelector((state) => state.reducer.queryFlightPassengerAmount);
 
-  const [departureCity, setDepartureCity] = useState("");
-  const [arrivalCity, setArrivalCity] = useState("");
+  const [departureCity, setDepartureCity] = useState(flightFrom);
+  const [arrivalCity, setArrivalCity] = useState(flightTo);
   const [departureCityLoading, setDepartureCityLoading] = useState(false);
   const [citiesForDeparture, setCitiesForDeparture] = useState([]);
   const [citiesForArrivals, setCitiesForArrivals] = useState([]);
   const [arrivalCityLoading, setArrivalCityLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isDepartureInputFocused, setDepartureFocused] = useState(false)
+  const [isArrivalInputFocused, setArrivalFocused] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    departureInputOnBlur();
+  }, [])
+  
+  useEffect(() => {
     if (errorMessage.length > 0) setErrorMessage("");
-    if (departureCity.length >= 3) {
+    if (departureCity.length >= 3  && isDepartureInputFocused) {
       setDepartureCityLoading(true);
       getDepartures(departureCity)
         .then((resp) => setCitiesForDeparture(resp))
@@ -58,10 +65,13 @@ const FlightSearchInputGroup = ({
 
   useEffect(() => {
     if (errorMessage.length > 0) setErrorMessage("");
-    if (arrivalCity.length >= 3) {
+    if (arrivalCity.length >= 3 && isArrivalInputFocused) {
       setArrivalCityLoading(true);
       getArrivals(arrivalCity)
-        .then((resp) => setCitiesForArrivals(resp))
+        .then((resp) => {
+          setCitiesForArrivals(resp);
+
+        })
         .then(() => setArrivalCityLoading(false))
         .catch((err) => {
           throw err;
@@ -84,33 +94,37 @@ const FlightSearchInputGroup = ({
 
   const departureInputOnBlur = () => {
     setTimeout(() => {
+        setDepartureFocused(false);
       setCitiesForDeparture([]);
       clearTimeout();
     }, 200);
   };
   const arrivalInputOnBlur = () => {
     setTimeout(() => {
+      setArrivalFocused(false)
       setCitiesForArrivals([]);
       clearTimeout();
     }, 200);
   };
 
+  const departureInputOnFocus = () => {
+    setDepartureFocused(true);
+  }
+
+  const arrivalInputOnFocus = () => {
+    setArrivalFocused(true)
+  }
+
   const onDepartureListSelect = (city) => {
     setDepartureCity(city);
     setDeparture(city.toLowerCase());
-    setTimeout(() => {
-      setCitiesForDeparture([]);
-      clearTimeout();
-    }, 100);
+    departureInputOnBlur();
   };
 
   const onArrivalListSelect = (city) => {
     setArrivalCity(city);
     setArrivals(city.toLowerCase());
-    setTimeout(() => {
-      setCitiesForArrivals([]);
-      clearTimeout();
-    }, 100);
+    arrivalInputOnBlur();
   };
 
   const findFlights = () => {
@@ -125,6 +139,9 @@ const FlightSearchInputGroup = ({
         if (resp.length === 0) {
           showNoFlightModal()
         } else {
+          // if user succeed to go to flight selection page, flight from and number of passenger variables will be stored in localstorage for the next visit
+          saveToLocalStorage("queryFlightFrom", flightFrom)
+          saveToLocalStorage("queryFlightPassengerAmount", passengerAmount);
           setQueryResults(resp);
           setErrorMessage("");
           navigate("/flight-selection");
@@ -143,6 +160,7 @@ const FlightSearchInputGroup = ({
         isLoading={departureCityLoading}
         value={departureCity}
         onBlur={departureInputOnBlur}
+        onFocus={departureInputOnFocus}
       />
       <CityList
         list={citiesForDeparture}
@@ -159,6 +177,7 @@ const FlightSearchInputGroup = ({
         isLoading={arrivalCityLoading}
         value={arrivalCity}
         onBlur={arrivalInputOnBlur}
+        onFocus={arrivalInputOnFocus}
       />
       <CityList
         list={citiesForArrivals}
