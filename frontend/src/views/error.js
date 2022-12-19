@@ -9,7 +9,7 @@ function ErrorView() {
     <div className="error-wrapper">
       <h1>Bir şeyler ters gitti. Lütfen tekrar deneyin.</h1>
       <Button
-        classes="ui black button"
+        classes="search-input-button navigate"
         content="Yeniden Dene"
         onClickAction={() => navigate("/")}
       />

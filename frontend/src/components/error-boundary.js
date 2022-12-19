@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { Component } from "react";
+import Button from "./button";
 
 
 class ErrorBoundary extends Component {
@@ -21,13 +22,17 @@ class ErrorBoundary extends Component {
     const { children } = this.props;
     if (hasError) {
       return (
-        <>
-          {" "}
-          <h1 className="error-boundary">
+        <div className="error-wrapper">
+          <h2 className="error-boundary">
             Yüklenirken bir hata ile karşılaşıldı.
-          </h1>
-          <h1 className="error-boundary">Lütfen Tekrar Deneyin</h1>
-        </>
+          </h2>
+          <h2 className="error-boundary">Lütfen tekrar deneyin.</h2>
+          <Button
+            classes="search-input-button navigate"
+            content="Geri Dön"
+            onClickAction={() => navigate(-1)}
+          />
+        </div>
       );
     }
 

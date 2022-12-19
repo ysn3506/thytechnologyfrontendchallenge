@@ -11,6 +11,7 @@ import FlightResults from "../components/flight-results";
 import ToggleInfo from "../components/toggle-info";
 import { capitalizeFirstLetter } from "../utils";
 import { getFlights } from "../services/apis";
+import ErrorBoundary from "../components/error-boundary";
 
 const FlightSelection = () => {
   const {
@@ -86,7 +87,9 @@ const FlightSelection = () => {
         />
         <SwitchToggle label="Promosyon Kodu" toggleMethod={togglePromotion} />
         <ToggleInfo>{toggleContent}</ToggleInfo>
-        <FlightResults discountedFlights={getPromotionDiscountToFlights} />
+        <ErrorBoundary>
+          <FlightResults discountedFlights={getPromotionDiscountToFlights} />
+        </ErrorBoundary>
       </div>
     </div>
   );
