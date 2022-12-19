@@ -1,17 +1,27 @@
-@use '../variables.scss';
-
 .cards-group {
     display: grid;
     grid-template-columns: 32.5% 32.5% 32.5%;
     ;
     gap: 0.75rem;
     padding: 10px;
-    background-color: variables.$secondary-bg-color;
+    background-color: $secondary-bg-color;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     height: 0;
     margin-bottom: 0.75rem;
     z-index: 5;
+
+    @include for-mobile-portrait {
+    grid-template-columns: unset;
+    grid-template-rows: auto auto auto;
+    height: 750px;
+    }
+    
+    @include for-tablet-portrait {
+        grid-template-columns: unset;
+        grid-template-rows: auto auto auto;
+        height: 750px;
+    }
 }
 
 .cards-group.show {

@@ -1,6 +1,3 @@
-@use '../variables.scss';
-
-
 .button {
     padding: 5px;
     transition: all 0.2s ease-in;
@@ -12,7 +9,7 @@
     transition: all 0.2s ease-in;
 }
 
-.button:hover{
+.button:hover {
     cursor: pointer;
 }
 
@@ -21,21 +18,47 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: variables.$sixth-bg-color;
-    color: variables.$secondary-color;
+    background-color: $sixth-bg-color;
+    color: $secondary-color;
     border: none;
     padding: 10px;
     min-width: 7rem;
     height: 3.85rem;
     font-size: 1rem;
 
+    @include for-mobile-portrait {
+        min-width: 15rem;
+        height: 8rem;
+        font-size: 2rem;
+
+    }
+
+    @include for-tablet-portrait {
+        min-width: 15rem;
+        height: 8rem;
+        font-size: 2rem;
+
+    }
+
     img {
         position: relative;
         width: 30px;
         height: 30px;
         margin-left: 15px;
-        color: variables.$secondary-color;
+        color: $secondary-color;
         align-self: center;
+
+        @include for-mobile-portrait {
+            width: 3rem;
+            height: 3rem;
+
+        }
+
+        @include for-tablet-portrait {
+            width: 3rem;
+            height: 3rem;
+
+        }
 
 
     }
@@ -50,37 +73,74 @@
         width: 30px;
         height: 30px;
         margin-left: unset;
+
+        @include for-mobile-portrait {
+            width: 3rem;
+            height: 3rem;
+
+        }
+
+        @include for-tablet-portrait {
+            width: 3rem;
+            height: 3rem;
+
+        }
     }
 
     span {
         position: absolute;
         top: 5px;
         right: 5px;
+
+        @include for-mobile-portrait {
+            top: 8px;
+            right: 8px;
+
+        }
+
+        @include for-tablet-portrait {
+            top: 8px;
+            right: 8px;
+
+        }
     }
 
-    .plus-icons{
+    .plus-icons {
         position: relative;
-        margin-left:3px;
+        margin-left: 3px;
         display: inline-flex;
-        margin-top:10px;
+        margin-top: 10px;
         font-weight: bold;
-        color:variables.$fourth-color;
-    
-      
+        color: $fourth-color;
+
+
     }
 
 }
 
-.button.search-input-button.passenger{
-   img:not(:first-of-type) {
-        margin-left:-12px;
-   }
-    
+.button.search-input-button.passenger {
+    img:not(:first-of-type) {
+        margin-left: -12px;
+    }
+
 }
+
 .button.search-input-button.navigate {
-    background-color: variables.$fourth-bg-color;
+    background-color: $fourth-bg-color;
     width: 3.5rem;
     min-width: unset;
+
+    @include for-mobile-portrait {
+        min-width: 15rem;
+        height: 8rem;
+
+    }
+
+    @include for-tablet-portrait {
+        min-width: 15rem;
+        height: 8rem;
+
+    }
 
     img {
         align-self: center;

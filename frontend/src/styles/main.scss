@@ -1,25 +1,26 @@
-@use 'variables.scss';
+@import './_mixins';
 
-@use 'components/header.scss';
-@use 'components/flight-search-view.scss';
-@use 'components/flight-search-input-group.scss';
-@use 'components/button.scss';
-@use 'components/input.scss';
-@use 'components/popup.scss';
-@use 'components/loading-spinner.scss';
-@use 'components/city-list.scss';
-@use 'components/modal.scss';
-@use 'components/flight-selection-view.scss';
-@use 'components/switch-toggle.scss';
-@use 'components/flight-results.scss';
-@use 'components/flight-info.scss';
-@use 'components/flight-details.scss';
-@use 'components/flights-card-group.scss';
-@use 'components/flight-card.scss';
-@use 'components/toggle-info.scss';
-@use 'components/flight-selection-result-view.scss';
-@use 'components/result-summary-wrapper.scss';
-@use 'components/error-view.scss';
+@import 'variables.scss';
+@import 'components/header.scss';
+@import 'components/flight-search-view.scss';
+@import 'components/flight-search-input-group.scss';
+@import 'components/button.scss';
+@import 'components/input.scss';
+@import 'components/popup.scss';
+@import 'components/loading-spinner.scss';
+@import 'components/city-list.scss';
+@import 'components/modal.scss';
+@import 'components/flight-selection-view.scss';
+@import 'components/switch-toggle.scss';
+@import 'components/flight-results.scss';
+@import 'components/flight-info.scss';
+@import 'components/flight-details.scss';
+@import 'components/flights-card-group.scss';
+@import 'components/flight-card.scss';
+@import 'components/toggle-info.scss';
+@import 'components/flight-selection-result-view.scss';
+@import 'components/result-summary-wrapper.scss';
+@import 'components/error-view.scss';
 
 
 .App {

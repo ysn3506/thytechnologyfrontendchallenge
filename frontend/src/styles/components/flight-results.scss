@@ -1,32 +1,45 @@
-@use '../variables.scss';
-
 .flight-results-wrapper {
 
-    background-color: variables.$passive-bg-color;
+    background-color: $passive-bg-color;
     width: 100%;
 
     .flight-results-header {
-        color: variables.$secondary-color;
+        color: $secondary-color;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        background-color: variables.$sixth-bg-color;
+        background-color: $sixth-bg-color;
         gap: 1rem;
         padding: 10px;
         font-size: 0.75rem;
-        border: 1px solid variables.$sixth-bg-color;
+        border: 1px solid $sixth-bg-color;
+        @include for-mobile-portrait {
+            font-size: 2rem;
+        }
+        
+        @include for-tablet-portrait {
+            font-size: 2rem;
+        }
+        
 
         .button {
-            border: 1px solid variables.$secondary-color;
+            border: 1px solid $secondary-color;
             border-radius: 5px;
-            color: variables.$secondary-color;
+            color: $secondary-color;
             background-color: transparent;
             padding: 3px 15px;
+            @include for-mobile-portrait {
+                font-size: 2.5rem;
+            }
+            
+            @include for-tablet-portrait {
+                font-size: 2.5rem;
+            }
         }
 
         .button.clicked {
-            background-color: variables.$secondary-color;
-            color: variables.$sixth-bg-color;
+            background-color: $secondary-color;
+            color: $sixth-bg-color;
         }
     }
 
@@ -46,6 +59,16 @@
                 display: grid;
                 grid-template-columns: max-content max-content;
                 gap: .6rem;
+
+                @include for-mobile-portrait{
+grid-template-columns: unset;
+grid-template-rows: max-content max-content;
+                }
+
+                @include for-tablet-portrait{
+grid-template-columns: unset;
+grid-template-rows: max-content max-content;
+                }
 
 
             }

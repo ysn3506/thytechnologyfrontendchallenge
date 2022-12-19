@@ -1,11 +1,12 @@
-@use '../variables.scss';
+@use '../mixins';
+
 
 .header-wrapper {
     padding: 3rem 5%;
     position: absolute;
-    top:0;
-    left:0;
-    width:-webkit-fill-available;
+    top: 0;
+    left: 0;
+    width: -webkit-fill-available;
 
     .header {
         padding-bottom: 0;
@@ -14,12 +15,29 @@
         align-items: center;
         font-weight: 800;
         font-size: 1.5rem;
-        color: variables.$third-color;
+        color: $third-color;
+        @include mixins.for-mobile-portrait {
+            font-size: 2.25rem;
+        };
+        @media screen and (min-width:0) and (max-width: 767px) and (orientation: portrait) {
+            margin-top: 10%;
+        }
+        
+        @include mixins.for-tablet-portrait{
+            font-size: 2.25rem;
+        };
 
         span {
             .thin {
                 font-weight: 300;
                 font-size: 1.25rem;
+                @include mixins.for-mobile-portrait {
+                    font-size: 2.25rem;
+                }
+                
+                @include mixins.for-tablet-portrait {
+                    font-size: 2.25rem;
+                }
             }
         }
 
@@ -31,23 +49,20 @@
     }
 
     .header.dark {
-        color: variables.$secondary-color;
+        color: $secondary-color;
     }
-
-
-  
 
 }
 
 .line {
     margin-top: 0;
-    border-top: 0.5px solid variables.$primary-color;
-    border-bottom: 0.5px solid variables.$primary-color;
+    border-top: 0.5px solid $primary-color;
+    border-bottom: 0.5px solid $primary-color;
 
 }
 
 .line.dark {
-    border-top: 0.5px solid variables.$secondary-color;
-    border-bottom: 0.5px solid variables.$secondary-color;
+    border-top: 0.5px solid $secondary-color;
+    border-bottom: 0.5px solid $secondary-color;
 
 }

@@ -1,5 +1,3 @@
-@use '../variables.scss';
-
 .flight-details-wrapper {
     display: grid;
     grid-template-columns: auto auto;
@@ -12,7 +10,7 @@
         align-items: center;
         padding: .75rem .5rem;
         gap: 1.25rem;
-        background-color: variables.$secondary-bg-color;
+        background-color: $secondary-bg-color;
         box-shadow: 2px 5px 13px rgb(0 0 0 / 10%);
         transition: all 300ms ease-in-out;
         -webkit-transition: all 300ms ease-in-out;
@@ -24,6 +22,13 @@
             gap: 0.75rem;
             transition: all 300ms ease-in-out;
             -webkit-transition: all 300ms ease-in-out;
+                @include for-mobile-portrait {
+                    gap: 1.5rem;
+                }
+                
+                @include for-tablet-portrait {
+                    gap: 1.5rem;
+                }
 
             .radio-button-wrapper {
                 display: flex;
@@ -31,13 +36,22 @@
 
                 input {
                     margin: 0 5px 0 0;
+                    width: 2rem;
+                    height: 2rem;
                 }
 
                 label {
                     font-size: 0.65rem;
                     font-weight: bold;
-                    color: variables.$fourth-color;
+                    color: $fourth-color;
                     text-decoration: underline;
+                        @include for-mobile-portrait {
+                            font-size: 1.5rem;
+                        }
+                        
+                        @include for-tablet-portrait {
+                        font-size: 1.5rem;
+                        }
                 }
             }
 
@@ -50,11 +64,26 @@
                 span {
                     font-size: 0.75rem;
                     width: max-content;
+                        @include for-mobile-portrait {
+                            font-size: 1.5rem;
+                        }
+                        
+                        @include for-tablet-portrait {
+                            font-size: 1.5rem;
+                        }
+                    
                 }
 
                 .amount {
                     font-size: 1.2rem;
                     font-weight: bold;
+                        @include for-mobile-portrait {
+                            font-size: 2rem;
+                        }
+                        
+                        @include for-tablet-portrait {
+                            font-size: 2rem;
+                        }
                 }
             }
         }
@@ -66,6 +95,17 @@
             img {
                 width: .75rem;
                 height: .75rem;
+
+                    @include for-mobile-portrait {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                    
+                    @include for-tablet-portrait {
+                        width:1.5rem;
+                        height:1.5rem;
+                    }
+                
             }
 
             .arrow-image {

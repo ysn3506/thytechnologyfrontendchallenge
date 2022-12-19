@@ -11,9 +11,9 @@ function FlightCardsGroup({ categories, isShown, selectedTab, flightInfo }) {
       opacity: 0,
       "margin-top": "-2.25rem",
     },
-    entered: { height: "300px", display: "grid", opacity: 1 },
-    exiting: { height: "0px", display: "grid", opacity: 0 },
-    exited: { height: "0px", display: "none", opacity: 0 },
+    entered: { height: "95%", display: "grid", opacity: 1 },
+    exiting: { height: "0%", display: "grid", opacity: 0 },
+    exited: { height: "0%", display: "none", opacity: 0 },
   };
 
   return (

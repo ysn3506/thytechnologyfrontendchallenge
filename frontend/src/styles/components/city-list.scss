@@ -1,20 +1,51 @@
-@use '../variables.scss';
-
-
 .city-list {
-    background-color: variables.$secondary-bg-color;
+    background-color: $secondary-bg-color;
     position: absolute;
     display: none;
     bottom: -50%;
-    color: variables.$third-color;
+    color: $third-color;
     padding: 10px 20px;
     min-height: 50%;
     min-width: 22.75%;
     left: 32.5%;
+
+    @include for-mobile-portrait {
+        min-width: 89%;
+        min-height: 100%;
+        z-index: 5;
+        font-size: 2rem;
+        left: unset;
+        bottom: -70%;
+
+    }
+
+    @include for-tablet-portrait {
+        min-width: 89%;
+        min-height: 100%;
+        font-size: 2rem;
+        z-index: 5;
+        left: unset;
+        bottom: -70%;
+
+    }
 }
 
 .city-list.departure {
     left: 4%;
+
+    @include for-mobile-portrait {
+
+        bottom: -50%;
+        left: unset;
+
+    }
+
+    @include for-tablet-portrait {
+
+        bottom: -50%;
+        left: unset;
+
+    }
 }
 
 .city-list.show {

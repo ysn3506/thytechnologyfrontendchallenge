@@ -1,11 +1,8 @@
-@use '../variables.scss';
-
-
 .flight-search-layout {
-    background-color: variables.$primary-bg-color;
+    background-color: $primary-bg-color;
     width: 100%;
     height: 100%;
-    color: variables.$secondary-color;
+    color: $secondary-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,13 +14,23 @@
         gap: 2rem;
         margin-top: -20rem;
 
+        @include for-mobile-portrait {
+            padding: 1rem;
+        }
+
+        @include for-tablet-portrait {
+            padding: 1rem;
+        }
+
+     
+
         .title-wrapper {
             text-align: center;
             margin: auto;
 
             :first-child {
                 font-size: 2.25rem;
-                margin-bottom:0.5rem;
+                margin-bottom: 0.5rem;
             }
 
             h1 {
@@ -33,6 +40,31 @@
                 margin: 0;
 
             }
+
+            @include for-mobile-portrait {
+                :first-child {
+                    font-size: 5rem;
+                }
+
+                h1 {
+                    font-size: 4.5rem;
+                }
+
+                ;
+            }
+
+            @include for-tablet-portrait {
+                :first-child {
+                    font-size: 4rem;
+                }
+
+                h1 {
+                    font-size: 3.5rem;
+                }
+
+                ;
+            }
+
         }
     }
 

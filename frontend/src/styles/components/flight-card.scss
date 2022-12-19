@@ -1,36 +1,74 @@
-@use '../variables.scss';
-
 .card-wrapper {
     display: inline-grid;
     grid-template-rows: 20% 80%;
     position: relative;
+        @include for-mobile-portrait {
+           min-height: 300px;
+        }
+        
+        @include for-tablet-portrait {
+            min-height: 300px;
+        }
 
     .card-title {
-        color: variables.$third-color;
+        color: $third-color;
         background-color: #f4f5f8;
         font-weight: bold;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px;
+        margin-top: 2px;
+                margin-right: 2px;
         ;
+            @include for-mobile-portrait {
+                font-size: 2rem;
+            }
+            
+            @include for-tablet-portrait {
+                font-size: 2rem;
+            }
 
         .price {
             display: flex;
-
+    @include for-mobile-portrait {
+        font-size: 2rem;
+    }
+    
+    @include for-tablet-portrait {
+        font-size: 2rem;
+    }
 
             .currency {
                 font-size: 0.75rem;
                 margin-top: 2px;
                 margin-right: 2px;
+                    @include for-mobile-portrait {
+                       font-size:2rem;
+                    margin-top:5px;
+                    margin-right: 5px;
+                    }
+                    
+                    @include for-tablet-portrait {
+                        font-size:2rem;
+                        margin-top: 5px;
+                        margin-right: 5px;
+                    }
             }
         }
     }
 
     .card-content {
         border: 1px solid rgb(0, 0, 0, 0.1);
-        background-color: variables.$secondary-bg-color;
+        background-color: $secondary-bg-color;
         font-size: .75rem;
+            @include for-mobile-portrait {
+                font-size: 1.5rem;
+            }
+            
+            @include for-tablet-portrait {
+                font-size: 1.5rem;
+            }
 
         .right {
             border-bottom: 1px solid rgb(0, 0, 0, 0.1);
@@ -45,17 +83,26 @@
     .button {
         position: absolute;
         bottom: 0;
-        background-color: variables.$fourth-bg-color;
-        color: variables.$secondary-bg-color;
+        background-color: $fourth-bg-color;
+        color: $secondary-bg-color;
         height: 3rem;
         border: none;
         width: 100%;
         font-weight: bold;
+            @include for-mobile-portrait {
+            height: 4rem;
+            font-size:2rem;
+            }
+            
+            @include for-tablet-portrait {
+            height: 4rem;
+            font-size:2rem;
+            }
     }
 
     .button:disabled {
         background-color: lightgray;
-        color: variables.$third-color;
+        color: $third-color;
         cursor: not-allowed;
     }
 

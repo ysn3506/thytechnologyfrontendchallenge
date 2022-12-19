@@ -1,65 +1,153 @@
-@use '../variables.scss';
-
 .popup {
-    background-color: variables.$secondary-bg-color;
+    background-color: $secondary-bg-color;
     position: absolute;
     display: none;
     bottom: -110%;
-    color: variables.$third-color;
+    color: $third-color;
     right: calc(0% + 32px);
     padding: 10px 20px;
     grid-template-rows: auto auto auto;
-    gap:2rem;
+    gap: 2rem;
     min-width: 30%;
     box-shadow: 5px 7px 10px rgb(0 0 0 / 50%);
 
-    h2{
-        font-size:1rem;
-        margin:0;
+    @include for-mobile-portrait {
+        bottom: -77.5%;
+        right: auto;
+        left: 3.5%;
+        min-width: 89%;
+        gap: 3rem;
     }
-    .radio-button-group{
+
+    @include for-tablet-portrait {
+
+        bottom: -77.5%;
+        right: auto;
+        left: 3.5%;
+        min-width: 89%;
+        gap: 3rem;
+    }
+
+
+    h2 {
+        font-size: 1rem;
+        margin: 0;
+
+        @include for-mobile-portrait {
+            font-size: 3rem;
+        }
+
+        @include for-tablet-portrait {
+            font-size: 3rem;
+        }
+    }
+
+    .radio-button-group {
         font-size: 0.8rem;
         align-items: center;
         display: flex;
-        gap:1rem;
-        .radio-button-wrapper{
+        gap: 1rem;
+
+        @include for-mobile-portrait {
+            font-size: 3rem;
+            gap: 2rem;
+
+            input {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        @include for-tablet-portrait {
+            font-size: 3rem;
+            gap: 2rem;
+
+            input {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        .radio-button-wrapper {
             display: flex;
             align-items: center;
-             input{
-            margin:0 5px 0 0 ;
+
+            input {
+                margin: 0 5px 0 0;
+            }
         }
-        }
-       
+
     }
 
-    .passenger-amount{
+    .passenger-amount {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        gap:1rem;
+        gap: 1rem;
         font-weight: 700;
-        .passenger-amount-action{
+
+        @include for-mobile-portrait {
+            font-size: 3rem;
+        }
+
+        @include for-tablet-portrait {
+            font-size: 3rem;
+        }
+
+        .passenger-amount-action {
             display: flex;
             font-size: 1rem;
-            gap:1rem;
+            gap: 1rem;
             align-items: center;
             font-weight: 400;
-            .button{
-                border:none;
+
+            @include for-mobile-portrait {
+                font-size: 3rem;
+            }
+
+            @include for-tablet-portrait {
+                font-size: 3rem;
+            }
+
+            .button {
+                border: none;
                 border-radius: 5px;
                 box-shadow: 1px 2px 5px rgb(0 0 0 / 30%);
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                span{display: none;}
-                img{
-                    width:1rem;
-                    height:1rem;
+
+                span {
+                    display: none;
+                }
+
+                img {
+                    width: 1rem;
+                    height: 1rem;
+                }
+
+                @include for-mobile-portrait {
+                    width: 8rem;
+                    height: 8rem;
+                }
+
+                @include for-tablet-portrait {
+                    width: 8rem;
+                    height: 8rem;
                 }
             }
-            span{
-                min-width:1.5rem;
+
+            span {
+                min-width: 1.5rem;
                 text-align: center;
+
+                @include for-mobile-portrait {
+                    min-width: 4.5rem;
+                }
+
+                @include for-tablet-portrait {
+                    min-width: 4.5rem;
+                }
             }
         }
     }
@@ -76,8 +164,16 @@
     top: -8px;
     right: 30%;
     z-index: 5;
+
+    @include for-mobile-portrait {
+        right: 45%;
+    }
+
+    @include for-tablet-portrait {
+        right: 45%;
+    }
 }
 
-.popup.show{
+.popup.show {
     display: grid;
 }

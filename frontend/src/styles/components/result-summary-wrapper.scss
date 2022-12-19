@@ -2,6 +2,13 @@
     display: grid;
     grid-template-rows: auto auto;
     width: 100%;
+    @include for-mobile-portrait {
+        font-size: 2.25rem;
+    }
+    
+    @include for-tablet-portrait {
+        font-size: 2.25rem;
+    }
 
     .result-detail {
         display: grid;
@@ -12,6 +19,13 @@
         .flight-query-summary {
             margin-bottom: 1rem;
             font-size: 1.5rem;
+            @include for-mobile-portrait {
+                font-size: 2.25rem;
+            }
+            
+            @include for-tablet-portrait {
+                font-size: 2.25rem;
+            }
 
             .title {
                 display: none;
@@ -20,6 +34,25 @@
 
         .card-wrapper {
             grid-template-rows: auto auto;
+            @include for-mobile-portrait {
+                font-size: 2.25rem;
+            }
+            
+            @include for-tablet-portrait {
+                font-size: 2.25rem;
+            }
+
+            .card-title{
+                .title, .price{
+                    @include for-mobile-portrait {
+                        font-size: 2.25rem;
+                    }
+                    
+                    @include for-tablet-portrait {
+                        font-size: 2.25rem;
+                    }
+                }
+            }
 
             button {
                 display: none;
@@ -28,6 +61,13 @@
             .card-content {
                 .right {
                     border-bottom: none;
+                    @include for-mobile-portrait {
+                        font-size: 1.75rem;
+                    }
+                    
+                    @include for-tablet-portrait {
+                        font-size:1.75rem;
+                    }
                 }
             }
         }

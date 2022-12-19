@@ -5,6 +5,15 @@
     font-weight: bold;
     font-size:1rem;
     align-items: center;
+    @include for-mobile-portrait {
+        font-size: 2.5rem;
+    }
+    
+    
+    
+    @include for-tablet-portrait {
+        font-size: 2.5rem;
+    }
 
 
     .switch {
@@ -12,6 +21,15 @@
         display: inline-block;
         width: 60px;
         height: 34px;
+        @include for-mobile-portrait {
+        width: 128px;
+        height: 68px;
+        }
+        
+        @include for-tablet-portrait {
+            width: 128px;
+            height: 68px;
+        }
     }
     
     .switch input {
@@ -42,6 +60,15 @@
         background-color: white;
         -webkit-transition: .4s;
         transition: .4s;
+            @include for-mobile-portrait {
+                width:60px;
+                height:60px;
+            }
+            
+            @include for-tablet-portrait {
+                width: 60px;
+                height:60px;
+            }
     }
     
     input:checked+.slider {
@@ -53,9 +80,9 @@
     }
     
     input:checked+.slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
+        -webkit-transform: translateX(60px);
+        -ms-transform: translateX(60px);
+        transform: translateX(60px);
     }
     
     /* Rounded sliders */

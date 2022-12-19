@@ -1,33 +1,35 @@
-@use '../variables.scss';
-
-.flight-modal{
+.flight-modal {
     display: flex;
-    width:100vw;
+    width: 100vw;
     height: 100vh;
-    top:0;
-    left:0;
-    background-color: variables.$modal-bg-color;
+    top: 0;
+    left: 0;
+    background-color: $modal-bg-color;
     position: fixed;
     justify-content: center;
     align-items: center;
-    z-index:10;
-    .flight-inner{
-        min-width:400px;
+    z-index: 10;
+
+    .flight-inner {
+        min-width: 400px;
         min-height: 100px;
-        width:30%;
+        width: 30%;
         height: 20%;
         position: relative;
-        margin:auto;
-        background-color: variables.$secondary-bg-color;
-        color:variables.$third-color;
-        padding:15px;
+        margin: auto;
+        background-color: $secondary-bg-color;
+        color: $third-color;
+        padding: 15px;
         box-shadow: 2px 5px 13px rgb(0 0 0 / 60%);
 
-        .button{
+        .button {
             position: absolute;
             bottom: 3rem;
-            right:2rem;
-            img{display: none;}
+            right: 2rem;
+
+            img {
+                display: none;
+            }
 
         }
     }

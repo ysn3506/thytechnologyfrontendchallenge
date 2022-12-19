@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ysn3506/thytechnologyfrontendchallenge#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "sass-loader": "^13.2.0"
   }
 }

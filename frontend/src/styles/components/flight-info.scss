@@ -1,11 +1,9 @@
-@use '../variables.scss';
-
 .flight-info-wrapper {
     display: grid;
     grid-template-columns: auto max-content;
     padding: 1.25rem 2.25rem;
     gap: 3rem;
-    background-color: variables.$secondary-bg-color;
+    background-color: $secondary-bg-color;
     box-shadow: 2px 5px 13px rgb(0 0 0 / 10%);
     min-width: 350px;
 
@@ -21,19 +19,33 @@
             align-items: center;
             font-size: 1.2rem;
             font-weight: bold;
+            @include for-mobile-portrait {
+                font-size: 2.5rem;
+            }
+            
+            @include for-tablet-portrait {
+                font-size: 2.5rem;
+            }
         }
 
         .airports {
             display: grid;
             grid-template-columns: min-content auto min-content;
             gap: 1rem;
+                @include for-mobile-portrait {
+                    font-size: 2rem;
+                }
+                
+                @include for-tablet-portrait {
+                    font-size: 2rem;
+                }
 
             .line {
                 margin: auto;
                 width: 100%;
                 height: 0;
-                border-top: 0.5px solid variables.$third-color;
-                border-bottom: 0.5px solid variables.$third-color;
+                border-top: 0.5px solid $third-color;
+                border-bottom: 0.5px solid $third-color;
             }
         }
 
@@ -44,6 +56,13 @@
                 text-align: center;
                 font-size: 0.75rem;
                 font-weight: normal;
+                    @include for-mobile-portrait {
+                        font-size: 1.5rem;
+                    }
+                    
+                    @include for-tablet-portrait {
+                        font-size: 1.5rem;
+                    }
             }
         }
     }
@@ -59,11 +78,25 @@
             padding: 0;
             text-align: center;
             font-size: 0.75rem;
+                @include for-mobile-portrait {
+                    font-size: 1.5rem;
+                }
+                
+                @include for-tablet-portrait {
+                    font-size: 1.5rem;
+                }
         }
 
         .duration {
             font-size: 1.2rem;
             font-weight: bold;
+                @include for-mobile-portrait {
+                    font-size: 2rem;
+                }
+                
+                @include for-tablet-portrait {
+                    font-size: 2rem;
+                }
 
         }
 

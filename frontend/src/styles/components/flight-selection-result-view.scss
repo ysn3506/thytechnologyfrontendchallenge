@@ -1,6 +1,3 @@
-@use '../variables.scss';
-
-
 .selection-result-layout {
     display: flex;
     height: 100vh;
@@ -15,6 +12,17 @@
         position: relative;
         gap: 5rem;
         margin: 10% auto auto;
+        @include for-mobile-portrait {
+            width: 90%;
+            margin: 20% auto auto;
+            max-width: 98%;
+        }
+        
+        @include for-tablet-portrait {
+            width: 90%;
+            margin: 20% auto auto;
+            max-width: 98%;
+        }
 
         .selection-result-status {
             display: flex;
@@ -52,10 +60,26 @@
                 font-weight: bold;
                 font-size: 1rem;
                 gap: 1rem;
+                @include for-mobile-portrait {
+                    font-size: 2.25rem;
+                }
+                
+                @include for-tablet-portrait {
+                    font-size:2.25rem;
+                }
 
                 img {
                     width: 1.5rem;
                     height: 1.5rem;
+                    @include for-mobile-portrait {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                    
+                    @include for-tablet-portrait {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    }
                 }
             }
 
@@ -68,11 +92,18 @@
                 justify-content: space-between;
                 width: 100%;
                 font-size: 1.5rem;
+                @include for-mobile-portrait {
+                    font-size: 2.5rem;
+                }
+                
+                @include for-tablet-portrait {
+                    font-size: 2.5rem;
+                }
 
 
                 .fare {
                     font-weight: bold;
-                    color: variables.$primary-bg-color;
+                    color: $primary-bg-color;
                 }
             }
 
