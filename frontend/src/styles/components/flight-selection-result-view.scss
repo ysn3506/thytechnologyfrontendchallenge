@@ -1,0 +1,82 @@
+@use '../variables.scss';
+
+
+.selection-result-layout {
+    display: flex;
+    height: 100vh;
+
+    .selection-result-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 700px;
+        width: 50%;
+        position: relative;
+        gap: 5rem;
+        margin: 10% auto auto;
+
+        .selection-result-status {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 1.5rem;
+
+            .navigate {
+                width: max-content;
+                padding: .75rem 3rem;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                align-self: flex-end;
+
+                span {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    right: auto;
+                }
+
+                img {
+                    display: none;
+                }
+            }
+
+            .status {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                font-weight: bold;
+                font-size: 1rem;
+                gap: 1rem;
+
+                img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+
+            .line {
+                width: 100%;
+            }
+
+            .amount {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                font-size: 1.5rem;
+
+
+                .fare {
+                    font-weight: bold;
+                    color: variables.$primary-bg-color;
+                }
+            }
+
+        }
+    }
+
+}

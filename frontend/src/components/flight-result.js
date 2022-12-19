@@ -44,6 +44,7 @@ const FlightResult = ({ flightInfo }) => {
         isShown={isClicked}
         categories={tabContent}
         selectedTab={selectedTab}
+        flightInfo={flightInfo}
       />
     </div>
   );

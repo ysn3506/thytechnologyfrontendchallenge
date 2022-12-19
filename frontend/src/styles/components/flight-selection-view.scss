@@ -9,12 +9,12 @@
     color: variables.$third-color;
 
     .flight-selection-wrapper {
-        max-width:70vw;
-        margin:0 auto;
+        max-width: 70vw;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap:3rem;
-        
+        gap: 3rem;
+
         .flight-query-summary {
             .title {
                 background-color: variables.$fourth-bg-color;

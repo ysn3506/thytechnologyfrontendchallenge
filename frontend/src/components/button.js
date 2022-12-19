@@ -1,7 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Button = ({ classes, onClickAction, icon, content, iconRepeat, disable }) => {
+const Button = ({
+  classes,
+  onClickAction,
+  icon,
+  content,
+  iconRepeat,
+  disable,
+}) => {
   const repeatAmount = iconRepeat <= 3 ? iconRepeat : 3;
   const iconElements = Array(repeatAmount).fill(icon);
   return (
@@ -25,7 +32,7 @@ Button.propTypes = {
   icon: PropTypes.any,
   content: PropTypes.any,
   iconRepeat: PropTypes.number,
-  disable:PropTypes.bool
+  disable: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -34,7 +41,7 @@ Button.defaultProps = {
   icon: undefined,
   content: "",
   iconRepeat: 1,
-  disable:false
+  disable: false,
 };
 
 export default Button;

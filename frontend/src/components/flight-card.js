@@ -3,16 +3,32 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import Button from "./button";
 import { capitalizeFirstLetter } from "../utils";
+import { useNavigate } from "react-router-dom";
+import { setSelectedFlight } from "../storage/actions";
 
-function FlightCard({ flightCategory, selectedTab }) {
+function FlightCard({ flightCategory, selectedTab, flightInfo }) {
   const { brandCode, price, rights } = flightCategory;
-  const isPromotionActive = useSelector(
-    (state) => state.reducer.isPromotionActive
+  const { isPromotionActive, queryFlightPassengerAmount } = useSelector(
+    (state) => state.reducer
   );
+  const navigate = useNavigate();
+
   const isButtonDisable =
     isPromotionActive &&
     ((brandCode !== "ecoFly" && selectedTab === "ECONOMY") ||
       selectedTab === "BUSINESS");
+
+  const buttonOnClickHandle = () => {
+    const selectedFlight = {
+      ...flightInfo,
+      ...flightCategory,
+      numberOfPassengers: queryFlightPassengerAmount,
+      selectedTab: selectedTab,
+    };
+    setSelectedFlight(selectedFlight);
+    navigate("/flight-selection-result");
+  };
+
   return (
     <div className="card-wrapper">
       <div className="card-title">
@@ -30,7 +46,11 @@ function FlightCard({ flightCategory, selectedTab }) {
             </div>
           ))}
       </div>
-      <Button content="Uçuşu Seç" disable={isButtonDisable} />
+      <Button
+        content="Uçuşu Seç"
+        disable={isButtonDisable}
+        onClickAction={buttonOnClickHandle}
+      />
     </div>
   );
 }
@@ -38,6 +58,7 @@ function FlightCard({ flightCategory, selectedTab }) {
 FlightCard.propTypes = {
   flightCategory: PropTypes.object,
   selectedTab: PropTypes.string,
+  flightInfo: PropTypes.object,
 };
 
 export default FlightCard;

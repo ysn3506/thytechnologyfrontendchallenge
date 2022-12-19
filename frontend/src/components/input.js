@@ -11,8 +11,7 @@ function SearchInput({
   isLoading,
   value,
   onBlur,
-  onFocus
-  
+  onFocus,
 }) {
   return (
     <div className={`input ${classess}`}>
@@ -47,7 +46,7 @@ SearchInput.defaultProps = {
   isLoading: false,
   value: "",
   onBlur: undefined,
-  onFocus:undefined
+  onFocus: undefined,
 };
 
 export default SearchInput;

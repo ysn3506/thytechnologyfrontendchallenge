@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import FlightCard from "./flight-card";
 import { Transition } from "react-transition-group";
 
-function FlightCardsGroup({ categories, isShown, selectedTab }) {
+function FlightCardsGroup({ categories, isShown, selectedTab, flightInfo }) {
   const transitionStyles = {
     entering: {
       height: "0px",
@@ -22,7 +22,12 @@ function FlightCardsGroup({ categories, isShown, selectedTab }) {
         <div className="cards-group " style={{ ...transitionStyles[state] }}>
           {categories &&
             categories.map((cat, i) => (
-              <FlightCard key={i} flightCategory={cat} selectedTab={selectedTab}/>
+              <FlightCard
+                key={i}
+                flightCategory={cat}
+                selectedTab={selectedTab}
+                flightInfo={flightInfo}
+              />
             ))}
         </div>
       )}
@@ -33,7 +38,8 @@ function FlightCardsGroup({ categories, isShown, selectedTab }) {
 FlightCardsGroup.propTypes = {
   categories: PropTypes.array,
   isShown: PropTypes.bool,
-  selectedTab:PropTypes.string
+  selectedTab: PropTypes.string,
+  flightInfo: PropTypes.object,
 };
 
 export default FlightCardsGroup;
