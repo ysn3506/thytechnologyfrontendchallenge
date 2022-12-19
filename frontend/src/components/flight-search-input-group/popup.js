@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import Button from "../button";
@@ -7,6 +7,8 @@ import minus from "../../assets/minus.png";
 import { setPassengerNumber } from "../../storage/actions";
 
 const Popup = ({ isShown }) => {
+  const [selectedTab, setSelectedTab] = useState("economy");
+
   const numberOfPassenger = useSelector(
     (state) => state.reducer.queryFlightPassengerAmount
   );
@@ -18,6 +20,14 @@ const Popup = ({ isShown }) => {
     if (numberOfPassenger > 1) setPassengerNumber(numberOfPassenger - 1);
   };
 
+  const toggleRadioButton = (tab) => {
+    if (selectedTab === tab) {
+      setSelectedTab()
+    } else {
+      setSelectedTab(tab)
+    } 
+}
+
   return (
     <div
       className={`popup ${isShown && "show"}`}
@@ -28,11 +38,25 @@ const Popup = ({ isShown }) => {
       <h2>Kabin ve Yolcu Seçimi</h2>
       <div className="radio-button-group">
         <div className="radio-button-wrapper">
-          <input type="radio" id="economy" name="economy" value="economoy" />
+          <input
+            type="radio"
+            id="economy"
+            name="economy"
+            value="economoy"
+            checked={selectedTab === "economy"}
+            onChange={() => toggleRadioButton("economy")}
+          />
           <label htmlFor="economy">Economy Class</label>
         </div>
         <div className="radio-button-wrapper">
-          <input type="radio" id="business" name="business" value="business" />
+          <input
+            type="radio"
+            id="business"
+            name="business"
+            value="business"
+            checked={selectedTab === "business"}
+            onChange={() => toggleRadioButton("business")}
+          />
           <label htmlFor="business">Business Class</label>
         </div>
       </div>

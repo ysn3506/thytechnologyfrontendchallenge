@@ -38,8 +38,12 @@
 }
 
 .fade-enter.fade-enter-active {
-    opacity: 1;
+    opacity: 0.5;
     transition: opacity 250ms ease-out;
+}
+
+.fade-enter-done{
+    opacity: 1;
 }
 
 .fade-exit {
@@ -47,6 +51,11 @@
 }
 
 .fade-exit.fade-exit-active {
+    opacity: 0.5;
+    transition: opacity 250ms ease-out;
+}
+
+.fade-exit-done{
     opacity: 0;
     transition: opacity 250ms ease-out;
 }
