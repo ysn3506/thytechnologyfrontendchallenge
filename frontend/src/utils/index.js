@@ -18,3 +18,5 @@ export const getFromLocalStorage = (key) => {
 export const saveToLocalStorage = (key, data) => {
     localStorage.setItem(key, data);
 }
+
+

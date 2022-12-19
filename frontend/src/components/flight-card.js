@@ -6,9 +6,13 @@ import { capitalizeFirstLetter } from "../utils";
 
 function FlightCard({ flightCategory, selectedTab }) {
   const { brandCode, price, rights } = flightCategory;
-  const isPromotionActive = useSelector(state => state.reducer.isPromotionActive);
-  const isButtonDisable = isPromotionActive && ((brandCode !== "ecoFly" && selectedTab === "ECONOMY")||(selectedTab==="BUSINESS"));
-  console.log(selectedTab)
+  const isPromotionActive = useSelector(
+    (state) => state.reducer.isPromotionActive
+  );
+  const isButtonDisable =
+    isPromotionActive &&
+    ((brandCode !== "ecoFly" && selectedTab === "ECONOMY") ||
+      selectedTab === "BUSINESS");
   return (
     <div className="card-wrapper">
       <div className="card-title">
@@ -26,14 +30,14 @@ function FlightCard({ flightCategory, selectedTab }) {
             </div>
           ))}
       </div>
-      <Button content="Uçuşu Seç" disable={isButtonDisable}/>
+      <Button content="Uçuşu Seç" disable={isButtonDisable} />
     </div>
   );
 }
 
 FlightCard.propTypes = {
   flightCategory: PropTypes.object,
-  selectedTab:PropTypes.string
+  selectedTab: PropTypes.string,
 };
 
 export default FlightCard;

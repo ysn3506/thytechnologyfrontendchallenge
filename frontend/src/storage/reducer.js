@@ -6,7 +6,8 @@ import {
   SET_NUMBER_OF_PASSENGER,
   SET_QUERY_RESULTS,
   SET_SELECTED_FLIGHT,
-  SET_PROMOTION_TOGGLE
+  SET_PROMOTION_TOGGLE,
+  SET_SORT_TYPE
 } from "./contants";
 
 // These are created for the UX, if user had flight search previously, departure city and number of passengers will be loaded automatically.
@@ -22,7 +23,8 @@ const initialState = {
   queryFlightPassengerAmount: Number(prevNumberOfPassengers) || 1,
   queryResults: [],
   selectedFlight: {},
-  isPromotionActive:false
+  isPromotionActive: false,
+  sortType:"economy"
 };
 
 export const reducer = (state = initialState, action) => {
@@ -41,6 +43,8 @@ export const reducer = (state = initialState, action) => {
       return { ...state, queryResults: action.payload };
     case SET_PROMOTION_TOGGLE:
       return { ...state, isPromotionActive: action.payload };
+    case SET_SORT_TYPE:
+      return { ...state, sortType: action.payload };
     default:
       return state;
   }

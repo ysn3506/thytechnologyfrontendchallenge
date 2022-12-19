@@ -30,10 +30,11 @@ export const getArrivals = async (query) => {
   }
 };
 
-export const getFlights = async (departure, arrival) => {
+export const getFlights = async (departure, arrival, sort="economy") => {
   try {
+    const sorting = sort === "economy" ? "fareCategories.ECONOMY.subcategories[0].price.amount" : "arrivalDateTimeDisplay";
     const response = await API.get(
-      `/flights?originAirport.city.name=${departure}&destinationAirport.city.name=${arrival}`
+      `/flights?originAirport.city.name=${departure}&destinationAirport.city.name=${arrival}&_sort=${sorting}`
     );
     return response.data;
   } catch (error) {

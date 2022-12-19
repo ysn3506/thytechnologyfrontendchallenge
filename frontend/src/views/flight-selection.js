@@ -1,33 +1,39 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { setDarkMode, setPromotionToggle, setQueryResults } from "../storage/actions";
+import {
+  setDarkMode,
+  setPromotionToggle,
+  setQueryResults
+} from "../storage/actions";
 import FlightQuerySummary from "../components/flight-query-summary";
 import SwitchToggle from "../components/switch-toggle";
 import FlightResults from "../components/flight-results";
 import ToggleInfo from "../components/toggle-info";
-import { getFlights } from "../services/apis";
 import { capitalizeFirstLetter } from "../utils";
+import { getFlights } from "../services/apis";
+
 
 const FlightSelection = () => {
   const {
     queryFlightFrom,
     queryFlightTo,
     queryFlightPassengerAmount,
-    isPromotionActive
+    isPromotionActive,   
+    sortType
   } = useSelector((state) => state.reducer);
 
   useEffect(() => {
     setDarkMode(false);
   }, []);
 
-  const togglePromotion = () => {
-    setPromotionToggle(!isPromotionActive);
-    if (!isPromotionActive) {
-      getFlights(
-        capitalizeFirstLetter(queryFlightFrom),
-        capitalizeFirstLetter(queryFlightTo)
-      ).then((resp) => {
-        console.log(resp);
+const getPromotionDiscountToFlights = () => {
+  if (!isPromotionActive) {
+    getFlights(
+      capitalizeFirstLetter(queryFlightFrom),
+      capitalizeFirstLetter(queryFlightTo),
+      sortType
+    )
+      .then((resp) => {
         resp.forEach((element) => {
           const ecoFly = element.fareCategories.ECONOMY.subcategories.find(
             (cat) => cat.brandCode === "ecoFly"
@@ -36,17 +42,28 @@ const FlightSelection = () => {
         });
 
         setQueryResults(resp);
+      })
+      .catch((err) => {
+        throw err;
       });
-    } else {
-      getFlights(
-        capitalizeFirstLetter(queryFlightFrom),
-        capitalizeFirstLetter(queryFlightTo)
-      ).then((resp) => setQueryResults(resp));
-    }
-  } 
+  } else {
+    getFlights(
+      capitalizeFirstLetter(queryFlightFrom),
+      capitalizeFirstLetter(queryFlightTo),
+      sortType
+    )
+      .then((resp) => setQueryResults(resp))
+      .catch((err) => {
+        throw err;
+      });
+  }
+};
 
 
-
+  const togglePromotion = () => {
+    setPromotionToggle(!isPromotionActive);
+    getPromotionDiscountToFlights(sortType);
+  };
 
   const toggleContent = (
     <>
@@ -71,7 +88,7 @@ const FlightSelection = () => {
         />
         <SwitchToggle label="Promosyon Kodu" toggleMethod={togglePromotion} />
         <ToggleInfo>{toggleContent}</ToggleInfo>
-        <FlightResults />
+        <FlightResults discountedFlights={getPromotionDiscountToFlights}/>
       </div>
     </div>
   );

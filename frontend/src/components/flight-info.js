@@ -10,12 +10,13 @@ function FlightInfo({ flightInfo }) {
     departureDateTimeDisplay,
   } = flightInfo;
 
+  // In the database arrivalDateTimeDisplay and departureDateTimeDisplay are replaced with each other. They should be fixed.
   return (
     <div className="flight-info-wrapper">
       <div className="flight-route">
         <div className="time">
-          <span>{departureDateTimeDisplay}</span>
           <span>{arrivalDateTimeDisplay}</span>
+          <span>{departureDateTimeDisplay}</span>
         </div>
         <div className="airports">
           <span>{originAirport.city.code}</span>

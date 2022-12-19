@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import FlightDetails from "./flight-details";
 import FlightInfo from "./flight-info";
@@ -8,6 +8,12 @@ const FlightResult = ({ flightInfo }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [tabContent, setTabContent] = useState([]);
   const [selectedTab, setSelectedTab] = useState();
+
+  useEffect(() => {
+    setIsClicked(false);
+    setSelectedTab();
+    setTabContent([]);
+  }, [flightInfo]);
 
   const handleClick = (tab, content) => {
     if (!isClicked) {
@@ -34,7 +40,11 @@ const FlightResult = ({ flightInfo }) => {
           selected={selectedTab}
         />
       </div>
-      <FlightCardsGroup isShown={isClicked} categories={tabContent} selectedTab={selectedTab} />
+      <FlightCardsGroup
+        isShown={isClicked}
+        categories={tabContent}
+        selectedTab={selectedTab}
+      />
     </div>
   );
 };
