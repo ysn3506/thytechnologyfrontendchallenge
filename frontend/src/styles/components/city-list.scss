@@ -13,19 +13,28 @@
         min-width: 89%;
         min-height: 100%;
         z-index: 5;
-        font-size: 2rem;
+        font-size: 1.5rem;
         left: unset;
-        bottom: -70%;
+        bottom: -3%;
+
+    }
+
+    @include for-mobile-landscape {
+
+        z-index: 5;
+        font-size: 1.5rem;
+        left: 30%;
+        bottom: -85%;
 
     }
 
     @include for-tablet-portrait {
         min-width: 89%;
         min-height: 100%;
-        font-size: 2rem;
+        font-size: 1.5rem;
         z-index: 5;
         left: unset;
-        bottom: -70%;
+        bottom: -48%;
 
     }
 }
@@ -35,14 +44,21 @@
 
     @include for-mobile-portrait {
 
-        bottom: -50%;
+        bottom: -3%;
         left: unset;
+
+    }
+
+    @include for-mobile-landscape {
+
+        bottom: -85%;
+        left: 0%;
 
     }
 
     @include for-tablet-portrait {
 
-        bottom: -50%;
+        bottom: -30%;
         left: unset;
 
     }

@@ -2,13 +2,14 @@
     gap: 2rem;
     font-size: 0.85rem;
     margin-top: -2rem;
+
     @include for-mobile-portrait {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
-    
-    
-    
+
+
+
     @include for-tablet-portrait {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }

@@ -27,17 +27,21 @@
     font-size: 1rem;
 
     @include for-mobile-portrait {
-        min-width: 15rem;
-        height: 8rem;
+        width: 100%;
+        height: 4rem;
         font-size: 2rem;
 
     }
 
     @include for-tablet-portrait {
-        min-width: 15rem;
-        height: 8rem;
+        width: 100%;
+        height: 4rem;
         font-size: 2rem;
 
+    }
+
+    @include for-mobile-landscape {
+        min-width: 4rem;
     }
 
     img {
@@ -49,18 +53,30 @@
         align-self: center;
 
         @include for-mobile-portrait {
-            width: 3rem;
-            height: 3rem;
+            width: 2rem;
+            height: 2rem;
 
         }
 
         @include for-tablet-portrait {
-            width: 3rem;
-            height: 3rem;
+            width: 2rem;
+            height: 2rem;
 
         }
 
+        @include for-mobile-landscape {
+            margin-left: 0;
+        }
 
+
+
+
+    }
+
+    span {
+        @include for-mobile-landscape {
+            display: none;
+        }
     }
 }
 
@@ -85,6 +101,9 @@
             height: 3rem;
 
         }
+
+
+
     }
 
     span {
@@ -123,22 +142,35 @@
         margin-left: -12px;
     }
 
+    @include for-mobile-landscape {
+        width: 7rem;
+
+        span {
+            display: block;
+        }
+
+    }
 }
 
 .button.search-input-button.navigate {
     background-color: $fourth-bg-color;
-    width: 3.5rem;
+    width: 100%;
     min-width: unset;
 
     @include for-mobile-portrait {
         min-width: 15rem;
-        height: 8rem;
+        height: 4rem;
 
     }
 
     @include for-tablet-portrait {
         min-width: 15rem;
-        height: 8rem;
+        height: 4rem;
+
+    }
+
+    @include for-mobile-landscape {
+        width: 4rem;
 
     }
 

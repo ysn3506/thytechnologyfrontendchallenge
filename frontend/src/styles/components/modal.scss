@@ -27,6 +27,14 @@
             bottom: 3rem;
             right: 2rem;
 
+            @include for-tablet-landscape {
+                bottom: 1rem;
+            }
+
+            @include for-mobile-landscape {
+                bottom: 0rem;
+            }
+
             img {
                 display: none;
             }

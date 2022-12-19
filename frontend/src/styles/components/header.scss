@@ -1,12 +1,21 @@
-@use '../mixins';
-
-
 .header-wrapper {
     padding: 3rem 5%;
     position: absolute;
     top: 0;
     left: 0;
     width: -webkit-fill-available;
+
+    @include for-mobile-portrait {
+        padding: 1rem 5%;
+    }
+
+    @include for-tablet-portrait {
+        padding: 1rem 5%;
+    }
+
+    @include for-mobile-landscape {
+        padding: 1rem 5%;
+    }
 
     .header {
         padding-bottom: 0;
@@ -16,27 +25,32 @@
         font-weight: 800;
         font-size: 1.5rem;
         color: $third-color;
-        @include mixins.for-mobile-portrait {
-            font-size: 2.25rem;
-        };
-        @media screen and (min-width:0) and (max-width: 767px) and (orientation: portrait) {
-            margin-top: 10%;
+
+        @include for-mobile-portrait {
+            font-size: .75rem;
+
         }
-        
-        @include mixins.for-tablet-portrait{
-            font-size: 2.25rem;
-        };
+
+        ;
+
+
+        @include for-tablet-portrait {
+            font-size: .75rem;
+        }
+
+        ;
 
         span {
             .thin {
                 font-weight: 300;
                 font-size: 1.25rem;
-                @include mixins.for-mobile-portrait {
-                    font-size: 2.25rem;
+
+                @include for-mobile-portrait {
+                    font-size: .55rem;
                 }
-                
-                @include mixins.for-tablet-portrait {
-                    font-size: 2.25rem;
+
+                @include for-tablet-portrait {
+                    font-size: .55rem;
                 }
             }
         }

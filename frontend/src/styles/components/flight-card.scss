@@ -2,13 +2,14 @@
     display: inline-grid;
     grid-template-rows: 20% 80%;
     position: relative;
-        @include for-mobile-portrait {
-           min-height: 300px;
-        }
-        
-        @include for-tablet-portrait {
-            min-height: 300px;
-        }
+
+    @include for-mobile-portrait {
+        min-height: 300px;
+    }
+
+    @include for-tablet-portrait {
+        min-height: 300px;
+    }
 
     .card-title {
         color: $third-color;
@@ -19,41 +20,44 @@
         align-items: center;
         padding: 10px;
         margin-top: 2px;
-                margin-right: 2px;
+        margin-right: 2px;
         ;
-            @include for-mobile-portrait {
-                font-size: 2rem;
-            }
-            
-            @include for-tablet-portrait {
-                font-size: 2rem;
-            }
+
+        @include for-mobile-portrait {
+            font-size: 1rem;
+        }
+
+        @include for-tablet-portrait {
+            font-size: 1rem;
+        }
 
         .price {
             display: flex;
-    @include for-mobile-portrait {
-        font-size: 2rem;
-    }
-    
-    @include for-tablet-portrait {
-        font-size: 2rem;
-    }
+
+            @include for-mobile-portrait {
+                font-size: 1rem;
+            }
+
+            @include for-tablet-portrait {
+                font-size: 1rem;
+            }
 
             .currency {
                 font-size: 0.75rem;
                 margin-top: 2px;
                 margin-right: 2px;
-                    @include for-mobile-portrait {
-                       font-size:2rem;
-                    margin-top:5px;
+
+                @include for-mobile-portrait {
+                    font-size: .8rem;
+
                     margin-right: 5px;
-                    }
-                    
-                    @include for-tablet-portrait {
-                        font-size:2rem;
-                        margin-top: 5px;
-                        margin-right: 5px;
-                    }
+                }
+
+                @include for-tablet-portrait {
+                    font-size: .8rem;
+
+                    margin-right: 5px;
+                }
             }
         }
     }
@@ -62,13 +66,14 @@
         border: 1px solid rgb(0, 0, 0, 0.1);
         background-color: $secondary-bg-color;
         font-size: .75rem;
-            @include for-mobile-portrait {
-                font-size: 1.5rem;
-            }
-            
-            @include for-tablet-portrait {
-                font-size: 1.5rem;
-            }
+
+        @include for-mobile-portrait {
+            font-size: .75rem;
+        }
+
+        @include for-tablet-portrait {
+            font-size: .75rem;
+        }
 
         .right {
             border-bottom: 1px solid rgb(0, 0, 0, 0.1);
@@ -89,15 +94,16 @@
         border: none;
         width: 100%;
         font-weight: bold;
-            @include for-mobile-portrait {
-            height: 4rem;
-            font-size:2rem;
-            }
-            
-            @include for-tablet-portrait {
-            height: 4rem;
-            font-size:2rem;
-            }
+
+        @include for-mobile-portrait {
+            height: 3rem;
+            font-size: 1.25rem;
+        }
+
+        @include for-tablet-portrait {
+            height: 3rem;
+            font-size: 1.25rem;
+        }
     }
 
     .button:disabled {

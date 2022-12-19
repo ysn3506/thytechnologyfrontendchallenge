@@ -2,12 +2,17 @@
     display: grid;
     grid-template-rows: auto auto;
     width: 100%;
+
     @include for-mobile-portrait {
-        font-size: 2.25rem;
+        font-size: 1.25rem;
     }
-    
+
+    @include for-mobile-landscape {
+        padding-bottom: 1.25rem;
+    }
+
     @include for-tablet-portrait {
-        font-size: 2.25rem;
+        font-size: 1.25rem;
     }
 
     .result-detail {
@@ -16,15 +21,24 @@
         gap: 1rem;
         height: 300px;
 
+        @include for-mobile-landscape {
+            gap: 0;
+        }
+
         .flight-query-summary {
             margin-bottom: 1rem;
             font-size: 1.5rem;
+
             @include for-mobile-portrait {
-                font-size: 2.25rem;
+                font-size: 1.25rem;
             }
-            
+
             @include for-tablet-portrait {
-                font-size: 2.25rem;
+                font-size: 1.25rem;
+            }
+
+            @include for-mobile-landscape {
+                font-size: 1.25rem;
             }
 
             .title {
@@ -34,22 +48,31 @@
 
         .card-wrapper {
             grid-template-rows: auto auto;
+
             @include for-mobile-portrait {
-                font-size: 2.25rem;
-            }
-            
-            @include for-tablet-portrait {
-                font-size: 2.25rem;
+                font-size: 1.25rem;
+                min-height: unset;
             }
 
-            .card-title{
-                .title, .price{
+            @include for-tablet-portrait {
+                font-size: 1.25rem;
+                min-height: unset;
+            }
+
+            @include for-mobile-landscape {
+                margin-top: -2rem;
+            }
+
+            .card-title {
+
+                .title,
+                .price {
                     @include for-mobile-portrait {
-                        font-size: 2.25rem;
+                        font-size: 1.25rem;
                     }
-                    
+
                     @include for-tablet-portrait {
-                        font-size: 2.25rem;
+                        font-size: 1.25rem;
                     }
                 }
             }
@@ -61,12 +84,13 @@
             .card-content {
                 .right {
                     border-bottom: none;
+
                     @include for-mobile-portrait {
-                        font-size: 1.75rem;
+                        font-size: 1.25rem;
                     }
-                    
+
                     @include for-tablet-portrait {
-                        font-size:1.75rem;
+                        font-size: 1.25rem;
                     }
                 }
             }

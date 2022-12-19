@@ -7,9 +7,30 @@
     box-shadow: 2px 5px 13px rgb(0 0 0 / 10%);
     min-width: 350px;
 
+    @include for-mobile-portrait {
+        min-width: unset;
+        gap: 1rem;
+        padding: .25rem;
+        width: auto;
+        grid-template-columns: 70% 20%;
+        justify-content: space-between;
+    }
+
+    @include for-tablet-portrait {
+        min-width: unset;
+    }
+
     .flight-route {
         display: grid;
         grid-template-rows: auto auto auto;
+
+        @include for-mobile-portrait {
+            grid-template-rows: fit-content fit-content fit-content;
+        }
+
+        @include for-tablet-portrait {
+            grid-template-rows: fit-content fit-content fit-content;
+        }
 
         .time,
         .cities {
@@ -19,12 +40,13 @@
             align-items: center;
             font-size: 1.2rem;
             font-weight: bold;
+
             @include for-mobile-portrait {
-                font-size: 2.5rem;
+                font-size: 1.5rem;
             }
-            
+
             @include for-tablet-portrait {
-                font-size: 2.5rem;
+                font-size: 1.5rem;
             }
         }
 
@@ -32,13 +54,14 @@
             display: grid;
             grid-template-columns: min-content auto min-content;
             gap: 1rem;
-                @include for-mobile-portrait {
-                    font-size: 2rem;
-                }
-                
-                @include for-tablet-portrait {
-                    font-size: 2rem;
-                }
+
+            @include for-mobile-portrait {
+                font-size: 1.5rem;
+            }
+
+            @include for-tablet-portrait {
+                font-size: 1.5rem;
+            }
 
             .line {
                 margin: auto;
@@ -46,6 +69,15 @@
                 height: 0;
                 border-top: 0.5px solid $third-color;
                 border-bottom: 0.5px solid $third-color;
+
+                @include for-mobile-portrait {
+                    width: 100%;
+                }
+
+                @include for-tablet-portrait {
+                    width: 100%;
+                }
+
             }
         }
 
@@ -56,13 +88,14 @@
                 text-align: center;
                 font-size: 0.75rem;
                 font-weight: normal;
-                    @include for-mobile-portrait {
-                        font-size: 1.5rem;
-                    }
-                    
-                    @include for-tablet-portrait {
-                        font-size: 1.5rem;
-                    }
+
+                @include for-mobile-portrait {
+                    font-size: 1.5rem;
+                }
+
+                @include for-tablet-portrait {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
@@ -78,25 +111,27 @@
             padding: 0;
             text-align: center;
             font-size: 0.75rem;
-                @include for-mobile-portrait {
-                    font-size: 1.5rem;
-                }
-                
-                @include for-tablet-portrait {
-                    font-size: 1.5rem;
-                }
+
+            @include for-mobile-portrait {
+                font-size: .5rem;
+            }
+
+            @include for-tablet-portrait {
+                font-size: 1rem;
+            }
         }
 
         .duration {
             font-size: 1.2rem;
             font-weight: bold;
-                @include for-mobile-portrait {
-                    font-size: 2rem;
-                }
-                
-                @include for-tablet-portrait {
-                    font-size: 2rem;
-                }
+
+            @include for-mobile-portrait {
+                font-size: 1rem;
+            }
+
+            @include for-tablet-portrait {
+                font-size: 1.5rem;
+            }
 
         }
 

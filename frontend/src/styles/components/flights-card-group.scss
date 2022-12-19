@@ -11,17 +11,20 @@
     margin-bottom: 0.75rem;
     z-index: 5;
 
+
     @include for-mobile-portrait {
-    grid-template-columns: unset;
-    grid-template-rows: auto auto auto;
-    height: 750px;
+        grid-template-columns: unset;
+        grid-template-rows: auto auto auto;
+        height: 750px;
     }
-    
+
     @include for-tablet-portrait {
         grid-template-columns: unset;
         grid-template-rows: auto auto auto;
         height: 750px;
     }
+
+
 }
 
 .cards-group.show {

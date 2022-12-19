@@ -1,41 +1,53 @@
 .flight-search-layout {
     background-color: $primary-bg-color;
     width: 100%;
-    height: 100%;
+
     color: $secondary-color;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-height: 100%;
 
     .layout-wrapper {
         display: flex;
         flex-direction: column;
         gap: 2rem;
         margin-top: -20rem;
+        min-height: 100%;
 
         @include for-mobile-portrait {
             padding: 1rem;
+            margin-top: 3rem;
         }
 
         @include for-tablet-portrait {
             padding: 1rem;
+            margin-top: 2rem;
         }
 
-     
+        @include for-tablet-landscape {
+            margin-top: -5rem;
+        }
+
+        @include for-mobile-landscape {
+            margin-top: -3rem;
+        }
+
+
 
         .title-wrapper {
             text-align: center;
             margin: auto;
 
             :first-child {
-                font-size: 2.25rem;
+                font-size: 2.75rem;
                 margin-bottom: 0.5rem;
             }
 
             h1 {
                 font-weight: 300;
-                font-size: 2rem;
+                font-size: 2.5rem;
                 line-height: 1;
                 margin: 0;
 
@@ -43,11 +55,11 @@
 
             @include for-mobile-portrait {
                 :first-child {
-                    font-size: 5rem;
+                    font-size: 2rem;
                 }
 
                 h1 {
-                    font-size: 4.5rem;
+                    font-size: 1.5rem;
                 }
 
                 ;
@@ -60,6 +72,30 @@
 
                 h1 {
                     font-size: 3.5rem;
+                }
+
+                ;
+            }
+
+            @include for-mobile-landscape {
+                :first-child {
+                    font-size: 2rem;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                }
+
+                ;
+            }
+
+            @include for-tablet-landscape {
+                :first-child {
+                    font-size: 2.5rem;
+                }
+
+                h1 {
+                    font-size: 1.75rem;
                 }
 
                 ;

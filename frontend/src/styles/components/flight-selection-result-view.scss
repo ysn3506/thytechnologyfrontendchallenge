@@ -12,16 +12,29 @@
         position: relative;
         gap: 5rem;
         margin: 10% auto auto;
+
         @include for-mobile-portrait {
             width: 90%;
             margin: 20% auto auto;
             max-width: 98%;
+            gap: 2rem;
         }
-        
+
+        @include for-mobile-landscape {
+            width: 75%;
+            margin: 17.5% auto auto;
+            gap: 1rem;
+        }
+
         @include for-tablet-portrait {
             width: 90%;
-            margin: 20% auto auto;
+            margin: 15% auto auto;
             max-width: 98%;
+            gap: 5rem;
+        }
+
+        @include for-tablet-landscape {
+            margin: 15% auto auto;
         }
 
         .selection-result-status {
@@ -31,6 +44,11 @@
             align-items: center;
             width: 100%;
             gap: 1.5rem;
+
+            @include for-mobile-landscape {
+
+                gap: 1rem;
+            }
 
             .navigate {
                 width: max-content;
@@ -60,26 +78,19 @@
                 font-weight: bold;
                 font-size: 1rem;
                 gap: 1rem;
+
                 @include for-mobile-portrait {
-                    font-size: 2.25rem;
+                    font-size: 1.25rem;
                 }
-                
+
                 @include for-tablet-portrait {
-                    font-size:2.25rem;
+                    font-size: 1.25rem;
                 }
 
                 img {
                     width: 1.5rem;
                     height: 1.5rem;
-                    @include for-mobile-portrait {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
-                    
-                    @include for-tablet-portrait {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    }
+
                 }
             }
 
@@ -92,13 +103,7 @@
                 justify-content: space-between;
                 width: 100%;
                 font-size: 1.5rem;
-                @include for-mobile-portrait {
-                    font-size: 2.5rem;
-                }
-                
-                @include for-tablet-portrait {
-                    font-size: 2.5rem;
-                }
+
 
 
                 .fare {

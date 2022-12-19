@@ -5,15 +5,18 @@
     padding: 8%;
     color: $third-color;
 
-    @include for-mobile-portrait{
-        padding:12% 1%;
-    }
-    @include for-tablet-portrait{
+    @include for-mobile-portrait {
         padding: 12% 1%;
     }
-    @include for-laptop{
+
+    @include for-tablet-portrait {
         padding: 12% 1%;
     }
+
+    @include for-laptop {
+        padding: 12% 1%;
+    }
+
     .flight-selection-wrapper {
         max-width: 70vw;
         margin: 0 auto;
@@ -22,21 +25,29 @@
         gap: 3rem;
 
         @include for-mobile-portrait {
-            padding:  1%;
+            padding: 1%;
             max-width: 99vw;
             margin: 0 5%;
-        };
-        
+            gap: 1.5rem;
+        }
+
+        ;
+
         @include for-tablet-portrait {
-            padding:  1%;
+            padding: 1%;
             max-width: 99vw;
             margin: 0 5%;
-        };
+            gap: 1.5rem;
+        }
+
+        ;
 
         @include for-laptop {
             padding: 1%;
             max-width: 99vw;
-        };
+        }
+
+        ;
 
         .flight-query-summary {
             .title {
@@ -45,13 +56,13 @@
                 padding: 5px 3rem;
 
                 @include for-mobile-portrait {
-                    font-size: 2.5rem;
+                    font-size: 1rem;
                 }
-                
-                
-                
+
+
+
                 @include for-tablet-portrait {
-                    font-size: 2.5rem;
+                    font-size: 1rem;
                 }
             }
 
@@ -59,17 +70,17 @@
                 font-size: 1.5rem;
                 margin-top: 1.5rem;
 
-                    @include for-mobile-portrait {
-                        font-size:3.5rem;
-                    }
-                    
-                    
-                    
-                    @include for-tablet-portrait {
-                        font-size:3.5rem;
-                    }
-                    
-                    
+                @include for-mobile-portrait {
+                    font-size: 1.5rem;
+                }
+
+
+
+                @include for-tablet-portrait {
+                    font-size: 1.5rem;
+                }
+
+
             }
         }
 

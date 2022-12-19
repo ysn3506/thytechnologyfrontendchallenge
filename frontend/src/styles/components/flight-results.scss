@@ -13,14 +13,7 @@
         padding: 10px;
         font-size: 0.75rem;
         border: 1px solid $sixth-bg-color;
-        @include for-mobile-portrait {
-            font-size: 2rem;
-        }
-        
-        @include for-tablet-portrait {
-            font-size: 2rem;
-        }
-        
+
 
         .button {
             border: 1px solid $secondary-color;
@@ -28,12 +21,13 @@
             color: $secondary-color;
             background-color: transparent;
             padding: 3px 15px;
+
             @include for-mobile-portrait {
-                font-size: 2.5rem;
+                font-size: 1rem;
             }
-            
+
             @include for-tablet-portrait {
-                font-size: 2.5rem;
+                font-size: 1rem;
             }
         }
 
@@ -60,14 +54,14 @@
                 grid-template-columns: max-content max-content;
                 gap: .6rem;
 
-                @include for-mobile-portrait{
-grid-template-columns: unset;
-grid-template-rows: max-content max-content;
+                @include for-mobile-portrait {
+                    grid-template-columns: unset;
+                    grid-template-rows: fit-content fit-content;
                 }
 
-                @include for-tablet-portrait{
-grid-template-columns: unset;
-grid-template-rows: max-content max-content;
+                @include for-tablet-portrait {
+                    grid-template-columns: unset;
+                    grid-template-rows: max-content max-content;
                 }
 
 

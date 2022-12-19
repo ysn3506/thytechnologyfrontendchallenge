@@ -4,6 +4,14 @@
     column-gap: .6rem;
     position: relative;
 
+    @include for-mobile-portrait {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include for-tablet-portrait {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .category {
         display: flex;
         justify-content: space-around;
@@ -15,6 +23,7 @@
         transition: all 300ms ease-in-out;
         -webkit-transition: all 300ms ease-in-out;
 
+
         .category-wrapper {
             display: flex;
             justify-content: space-around;
@@ -22,13 +31,16 @@
             gap: 0.75rem;
             transition: all 300ms ease-in-out;
             -webkit-transition: all 300ms ease-in-out;
-                @include for-mobile-portrait {
-                    gap: 1.5rem;
-                }
-                
-                @include for-tablet-portrait {
-                    gap: 1.5rem;
-                }
+
+            @include for-mobile-portrait {
+                gap: .5rem;
+                flex-direction: column;
+            }
+
+            @include for-tablet-portrait {
+                gap: .5rem;
+                flex-direction: column;
+            }
 
             .radio-button-wrapper {
                 display: flex;
@@ -36,8 +48,18 @@
 
                 input {
                     margin: 0 5px 0 0;
-                    width: 2rem;
-                    height: 2rem;
+                    width: 1.25rem;
+                    height: 1.25rem;
+
+                    @include for-mobile-portrait {
+                        width: .75rem;
+                        height: .75rem;
+                    }
+
+                    @include for-tablet-portrait {
+                        width: .75rem;
+                        height: .75rem;
+                    }
                 }
 
                 label {
@@ -45,13 +67,14 @@
                     font-weight: bold;
                     color: $fourth-color;
                     text-decoration: underline;
-                        @include for-mobile-portrait {
-                            font-size: 1.5rem;
-                        }
-                        
-                        @include for-tablet-portrait {
-                        font-size: 1.5rem;
-                        }
+
+                    @include for-mobile-portrait {
+                        font-size: 1rem;
+                    }
+
+                    @include for-tablet-portrait {
+                        font-size: 1rem;
+                    }
                 }
             }
 
@@ -60,30 +83,38 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                gap: .25rem;
+
+                @include for-mobile-portrait {
+                    gap: 1rem;
+                }
+
 
                 span {
                     font-size: 0.75rem;
                     width: max-content;
-                        @include for-mobile-portrait {
-                            font-size: 1.5rem;
-                        }
-                        
-                        @include for-tablet-portrait {
-                            font-size: 1.5rem;
-                        }
-                    
+
+                    @include for-mobile-portrait {
+                        font-size: 1rem;
+                    }
+
+                    @include for-tablet-portrait {
+                        font-size: 1rem;
+                    }
+
                 }
 
                 .amount {
                     font-size: 1.2rem;
                     font-weight: bold;
-                        @include for-mobile-portrait {
-                            font-size: 2rem;
-                        }
-                        
-                        @include for-tablet-portrait {
-                            font-size: 2rem;
-                        }
+
+                    @include for-mobile-portrait {
+                        font-size: 1rem;
+                    }
+
+                    @include for-tablet-portrait {
+                        font-size: 1.6rem;
+                    }
                 }
             }
         }
@@ -96,16 +127,16 @@
                 width: .75rem;
                 height: .75rem;
 
-                    @include for-mobile-portrait {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
-                    
-                    @include for-tablet-portrait {
-                        width:1.5rem;
-                        height:1.5rem;
-                    }
-                
+                @include for-mobile-portrait {
+                    width: .75rem;
+                    height: .75rem;
+                }
+
+                @include for-tablet-portrait {
+                    width: .75rem;
+                    height: .75rem;
+                }
+
             }
 
             .arrow-image {
